@@ -484,10 +484,10 @@ function control_draw() {
 		                    if (current_time - song_added[xx, b] < 1000) a = 0
 		                }
 		                if (a) {
-		                    if (song_ins[xx, b].loaded) play_sound(song_ins[xx, b], song_key[xx, b], c , d, e)
+		                    if (song_ins[xx, b].loaded) play_sound(song_ins[xx, b], song_key[xx, b], c , d, e, b + 1)
 							if (instrument_list[| ds_list_find_index(instrument_list, song_ins[xx, b])].name = "Tempo Changer") tempo = floor(abs(e)) / 15
 							if (instrument_list[| ds_list_find_index(instrument_list, song_ins[xx, b])].name = "Toggle Rainbow") {rainbowtoggle = !rainbowtoggle draw_accent_init()}
-							if (instrument_list[| ds_list_find_index(instrument_list, song_ins[xx, b])].name = "Sound Stopper") {remove_emitters_all()}
+							if (instrument_list[| ds_list_find_index(instrument_list, song_ins[xx, b])].name = "Sound Stopper") {remove_emitters_all(floor(e), floor(d - 100))}
 		                    if (song_ins[xx, b].press || isplayer) key_played[song_key[xx, b]] = current_time
 		                    song_played[xx, b] = current_time
 		                }
