@@ -51,6 +51,7 @@ function control_create() {
 	currentfont = 0
 	acrylic = 1
 	can_draw_mica = 1
+	acrylic_successful = 1
 	mouseover = 0
 	display_width = display_get_width()
 	display_height = display_get_height()
@@ -556,7 +557,20 @@ function control_create() {
 	if (channelstoggle) channels = 1024
 	else channels = 256
 	audio_channel_num(channels)
-	change_theme()
+	if (acrylic_successful) {
+		if (acrylic) {
+			acrylic_successful = 0
+			save_settings()
+			change_theme()
+			acrylic_successful = 1
+			save_settings()
+		}
+	} else {
+		acrylic = 0
+		can_draw_mica = 0
+		if (language != 1) show_message("Minecraft Note Block Studio encountered an error creating blurred background sprite, the transparency effect will be disabled.\n This usually happens when your desktop wallpaper is either too tall or too long.")
+		else show_message("Minecraft Note Block Studio 在创建模糊背景贴图时遇到错误，透明效果将被关闭。\n这种情况一般是由于您的桌面壁纸图片过高或过长。")
+	}
 	if (show_welcome) window = w_greeting
 	draw_accent_init()
 	if (isplayer) window_set_size(floor(800 * window_scale), floor(500 * window_scale))
