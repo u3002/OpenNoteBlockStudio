@@ -553,7 +553,7 @@ function control_create() {
 		default:
 			lang_en_us()
 	}
-	if (channelstoggle) channels = 32768
+	if (channelstoggle) channels = 1024
 	else channels = 256
 	audio_channel_num(channels)
 	change_theme()

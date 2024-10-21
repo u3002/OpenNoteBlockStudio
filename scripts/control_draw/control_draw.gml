@@ -16,7 +16,7 @@ function control_draw() {
 	}
 	prev_scale = window_scale
 	
-	if (channelstoggle) channels = 32768
+	if (channelstoggle) channels = 1024
 	else channels = 256
 	audio_channel_num(channels)
 	if (icon_display) {
