@@ -9,6 +9,8 @@ Changes in v3.11.0 Beta 3 (TBD):
 * Fix missing notes after compressing selection.
 * Revert Windows app description due to it displaying as the program name in
    Task Manager and Programs and Resources.
+* Reduced the increase audio channel option channel count from 32768 to 1024 for
+   optimization purpose.
 
 
 Changes in v3.11.0 Beta 2 (2024.07.09):
