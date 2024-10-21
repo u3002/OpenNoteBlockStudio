@@ -33,11 +33,11 @@ function control_draw() {
 	draw_set_alpha(1)
 	draw_theme_color()
 	draw_theme_font(font_main)
-	editline += 1
 	if refreshrate = 1 game_set_speed(60,gamespeed_fps)
 	if refreshrate = 2 game_set_speed(120,gamespeed_fps)
 	if refreshrate = 3 game_set_speed(144,gamespeed_fps)
 	if refreshrate = 4 game_set_speed(240,gamespeed_fps)
+	editline += 30 / (room_speed)
 	if (editline > 60) editline = 0
 	if (delay > 0) delay -= 1 / (room_speed / 20)
 	if (delay < 0) delay = 0
