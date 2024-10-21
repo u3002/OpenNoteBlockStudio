@@ -16,11 +16,11 @@ function macro_fadein() {
 	//for (var i = 0; i < total_vals; i++;) {show_debug_message(arr_data[i])}
 	while (val < total_vals) {
 		val += 4
-		arr_data[val] = 0+decr
+		arr_data[val] = abs(0+decr)
 		val += 3
 		while arr_data[val] != -1 {
 			val += 3
-			arr_data[val] = 0+decr
+			arr_data[val] = abs(0+decr)
 			val += 3
 		}
 		decr = decr + inc
