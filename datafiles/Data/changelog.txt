@@ -11,6 +11,8 @@ Changes in v3.11.0 Beta 3 (TBD):
    Task Manager and Programs and Resources.
 * Reduced the increase audio channel option channel count from 32768 to 1024 for
    optimization purpose.
+* Fix FPS affects flashing speed of piano when editing key binds.
+* Fix adding new layer above solo layers causes the buttons to break.
 
 
 Changes in v3.11.0 Beta 2 (2024.07.09):

@@ -61,6 +61,7 @@ function add_layer() {
 		layerstereo[l] = layerstereo[l - 1]
 		swap_text_edit(400 + l, 400 + l - 1)
 	}
+	solostr = string_replace_all(solostr, "|" + string(num) + "|", "|" + string(num + 1) + "|")
 
 	// Place layer back
 	if (blocks != "") {
