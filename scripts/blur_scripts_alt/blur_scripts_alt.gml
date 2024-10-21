@@ -31,6 +31,7 @@ function draw_surface_blur_alt(surface, x, y, w, h, downamount) {
 		surface_reset_target()
 		surface_set_target(surface)
 		gpu_set_tex_filter(true)
+		draw_rectangle_color(x, y, x + w - 1, y + h - 1, 0, 0, 0, 0, 0)
 		draw_surface_stretched(obj_controller.blur_temp_surface, x, y, w, h)
 		gpu_set_tex_filter(temp_tex_filter)
 		surface_reset_target()
