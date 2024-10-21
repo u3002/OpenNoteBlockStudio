@@ -14,6 +14,8 @@ Changes in v3.11.0 Beta 3 (TBD):
 * Fix FPS affects flashing speed of piano when editing key binds.
 * Fix adding new layer above solo layers causes the buttons to break.
 * Fix volume slider number marker goes past intended range.
+* Added a check to turn transparency effect off if there was an error caused by that
+   in the last session.
 
 
 Changes in v3.11.0 Beta 2 (2024.07.09):
