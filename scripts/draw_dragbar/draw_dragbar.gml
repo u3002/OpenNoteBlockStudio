@@ -55,7 +55,7 @@ function draw_dragbar(value, max, x, y, length, id, str, kstr, window){
 		if (mouse_rectangle(x + (value / max) * length - 6, y + 1 - 6, 13, 13) && window = obj_controller.window) {
 			draw_popup(mouse_x, y + 20, kstr, true)
 		} else if (a || aa = id) {
-			draw_popup(mouse_x, y + 20, str, true)
+			draw_popup(clamp(mouse_x, x, x + length), y + 20, str, true)
 		}
 	}
 	
