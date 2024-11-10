@@ -12,7 +12,9 @@ function draw_window_greeting() {
 		y1 += 210 - 100;
 		var hover_badge = mouse_rectangle(x1, y1, 150, 120)
 		var hover_x = mouse_rectangle(x1 + 120, y1 + 3, 16, 16)
+		gpu_set_tex_filter(false)
 		draw_sprite(spr_donate, hover_x ? 1 : 0, x1, y1);
+		gpu_set_tex_filter(true)
 		//popup_set_window(x1, y1, 150, 20, "Click to open our Open Collective\n page in your browser!");
 		if (hover_badge) {
 			curs = cr_handpoint;
