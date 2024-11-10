@@ -23,7 +23,8 @@ function get_assets_dir() {
 function find_asset_indexes() {
 
 	if (!directory_exists(mc_install_path)) {
-		show_message("No Minecraft installation was found\nat the selected location!");
+		if (language != 1) show_message("No Minecraft installation was found\nat the selected location!");
+		else show_message("在所选位置未找到有Minecraft安装！");
 		return [];
 	}
 	
@@ -88,7 +89,8 @@ function load_asset_index(copy = false) {
 	if (selected_asset_list == "") return;
 	var asset_index_path = assets_dir + "indexes\\" + selected_asset_list + ".json";
 	if (!file_exists(asset_index_path)) {
-		show_message("The file for the specified asset index could not be found!")
+		if (language != 1) show_message("The file for the specified asset index could not be found!")
+		else show_message("未找到该索引所指向的文件！")
 		return;
 	}
 	var file_buffer = buffer_load(asset_index_path);
@@ -105,7 +107,10 @@ function load_asset_index(copy = false) {
 	var sounds_mc_subdir = sounds_directory + "minecraft";
 	
 	if (copy && directory_exists_lib(sounds_mc_subdir)) {
-		if (!message_yesnocancel("An existing folder with imported Minecraft sounds has been found in your Sounds folder. Would you like to replace it?", "Warning")) {
+		var isreplace = 0
+		if (language != 1) isreplace = message_yesnocancel("An existing folder with imported Minecraft sounds has been found in your Sounds folder. Would you like to replace it?", "Warning")
+		else isreplace = message_yesnocancel("在您的Sounds文件夹中发现已经存在一个包含已导入Minecraft音效的文件夹，您想要覆盖它吗？", "警告")
+		if (!isreplace) {
 			return;
 		} else {
 			directory_delete_lib(sounds_mc_subdir);
