@@ -18,7 +18,8 @@ function draw_window_greeting() {
 			curs = cr_handpoint;
 			if (mouse_check_button_released(mb_left)) {
 				if (hover_x) { // X button
-					show_message("Developing Note Block Studio takes a lot of unpaid volunteering time. If you can, please consider supporting us in the future! =)\n\n(You can find that option at any time in Help > Donate.)");
+					if (language != 1) show_message("Developing Note Block Studio takes a lot of unpaid volunteering time. If you can, please consider supporting us in the future! =)\n\n(You can find that option at any time in Help > Donate.)");
+					else show_message("开发Note Block Studio完全基于我们用爱发电。如果情况允许，请考虑在以后小小的支持我们一下！(～￣▽￣)～\n\n（您可以随时在帮助 > 捐赠中找到该选项。）")
 					donate_banner_time = date_inc_month(date_current_datetime(), 1);
 					donate_banner = 0;
 					save_settings();
@@ -241,7 +242,7 @@ function draw_window_greeting() {
 		}
 	}
 	if (language != 1) draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) - 7, "Browse songs made by the community");
-	else draw_text_dynamic(b + 48 + (a > 1) - 10, c + 9 + (a > 1), "Browse songs made by the community");
+	else draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) - 7, "浏览社区制作的歌曲");
 	
 	// New badge
 	draw_set_color(accent[4]);
@@ -259,7 +260,7 @@ function draw_window_greeting() {
 	
 	draw_set_color(c_gray);
 	if (language != 1) draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) + 7, "Go to noteblock.world");
-	else draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) + 10, "Go to noteblock.world");
+	else draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) + 7, "前往 noteblock.world");
 	draw_theme_color();
 	if (a = 2 && mouse_check_button_released(mb_left)) {
 		if (windowsound && theme = 3) play_sound(soundinvoke, 45, 100, 50, 0)
