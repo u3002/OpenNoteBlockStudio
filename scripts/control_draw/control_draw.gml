@@ -936,6 +936,10 @@ function control_draw() {
 			debug_option = 1
 			set_msg("[Debug] Window => 0")
 		}
+		if (keyboard_check_released(ord("G"))) {
+			window = w_greeting
+			set_msg("[Debug] Window => w_greeting")
+		}
 		//if (keyboard_check_released(ord("D")) && isplayer) {
 		//	if (!dropmode) window_maximize()
 		//	//else window_set_size(floor(800 * window_scale), floor(500 * window_scale))
