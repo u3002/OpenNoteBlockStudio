@@ -169,6 +169,7 @@ function save_settings() {
 	ini_write_real_clean("warnings", "instrument", warning_instrument)
 	ini_write_real_clean("warnings", "schematics", warning_schematic)
 	ini_write_real_clean("warnings", "tempobox", tutorial_tempobox)
+	ini_write_real_clean("warnings", "donate_banner_time", donate_banner_time)
 
 	ini_close()
 	return 1

@@ -6,6 +6,31 @@ function draw_window_greeting() {
 	curs = cr_default
 	x1 = floor(rw / 2 - 350)
 	y1 = floor(rh / 2 - 210) + windowoffset
+	
+	if (donate_banner) {
+		x1 += 700;
+		y1 += 210 - 100;
+		var hover_badge = mouse_rectangle(x1, y1, 150, 120)
+		var hover_x = mouse_rectangle(x1 + 120, y1 + 3, 16, 16)
+		draw_sprite(spr_donate, hover_x ? 1 : 0, x1, y1);
+		//popup_set_window(x1, y1, 150, 20, "Click to open our Open Collective\n page in your browser!");
+		if (hover_badge) {
+			curs = cr_handpoint;
+			if (mouse_check_button_released(mb_left)) {
+				if (hover_x) { // X button
+					show_message("Developing Note Block Studio takes a lot of unpaid volunteering time. If you can, please consider supporting us in the future! =)\n\n(You can find that option at any time in Help > Donate.)");
+					donate_banner_time = date_inc_month(date_current_datetime(), 1);
+					donate_banner = 0;
+					save_settings();
+				} else {
+					open_url(link_donate);
+				}
+			}
+		}
+		x1 -= 700;
+		y1 -= 210 - 100;
+	}
+	
 	draw_window(x1, y1, x1 + 700, y1 + 430)
 	draw_sprite_ext(spr_logo, window_icon, x1 + 64, y1 + 50, 1, 1, 0, c_white, draw_get_alpha())
 	draw_theme_font(font_info_med_bold)

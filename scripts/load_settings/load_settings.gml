@@ -174,6 +174,7 @@ function load_settings() {
 	warning_instrument = ini_read_real("warnings", "instrument", warning_instrument)
 	warning_schematic =  ini_read_real("warnings", "schematics", warning_schematic)
 	tutorial_tempobox =  ini_read_real("warnings", "tempobox", tutorial_tempobox)
+	donate_banner_time = ini_read_real("warnings", "donate_banner_time", donate_banner_time)
 
 	ini_close()
 	return 1

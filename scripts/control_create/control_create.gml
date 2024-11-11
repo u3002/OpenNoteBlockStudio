@@ -66,6 +66,8 @@ function control_create() {
 	icon_display = 1
 	hires = (window_scale > 1.25)
 	surface_depth_disable(true)
+	donate_banner = 1
+	donate_banner_time = -1
 	
 	font_table =
 	[
@@ -578,6 +580,11 @@ function control_create() {
 	window_set_min_height(500 * window_scale)
 	if ((theme = 3 && fdark) || theme = 2) window_set_darkmode()
 	if (keynames_flat) keynames = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"]
+	if (date_compare_date(date_current_datetime(), donate_banner_time) > 0) {
+		donate_banner = 1
+	} else {
+		donate_banner = 0
+	}
 
 	// Updates
 	if (check_update)
@@ -598,6 +605,7 @@ function control_create() {
 		theme = 3 // Sets to the Fluent theme when updated
 	    window = w_update
 	    update_success = 1
+		donate_banner = 1 // Enable donate banner after each update
 	}
 	
 	// Download song
