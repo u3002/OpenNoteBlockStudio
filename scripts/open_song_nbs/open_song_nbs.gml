@@ -79,6 +79,11 @@ function open_song_nbs(fn, sounds_path = "", safeopen) {
 			loopstart = buffer_read_short()
 		}
 	}
+		
+	// Song's notes will be put into the following array before being added to the program
+	var notes = []
+	var notes_at = 0
+		
 	// Note blocks
 	ca = -1
 	while (1) {
@@ -102,9 +107,29 @@ function open_song_nbs(fn, sounds_path = "", safeopen) {
 				pan = 100
 				pit = 0
 			}
-	        add_block(ca, cb, ins, median(0, key, 87), vel, pan, pit, true)
+			array_grow_then_set(notes, notes_at++, {
+				a: ca,
+				b: cb,
+				ins: ins,
+				key: median(0, key, 87),
+				vel: vel,
+				pan: vel,
+				pit: pit,
+			});
 	    }
 	}
+	array_resize(notes, notes_at)
+		
+	if (array_length(notes) > 0) {
+		// Add blocks in reverse order to improve performance
+		var length = array_length(notes)
+		for (var i = length - 1; i >= 0; --i) {
+			var note = notes[i]
+			add_block(note.a, note.b, note.ins, note.key, note.vel, note.pan, note.pit, true)
+			delete notes[i]
+		}
+	}
+	
 	if (buffer_is_eof()) { // End?
 	    buffer_delete(buffer)
 	    add_to_recent(fn)
