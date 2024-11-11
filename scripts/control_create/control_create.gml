@@ -637,7 +637,10 @@ function control_create() {
 	// PREVIOUSLY DISABLED DUE TO https://github.com/OpenNBS/OpenNoteBlockStudio/issues/196
 	// Implemented in a better way that takes multiple instances into account.
 	if (file_find_first(backup_directory + "*.nbs", 0) != "" && !port_taken && !isplayer) {
-		if (question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?\n\n(If you click 'No', you'll be prompted to recover it again the next time you open the program.)", "Auto-recovery")) {
+		var isrecover = 0
+		if (language != 1) isrecover = question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?\n\n(If you click 'No', you'll be prompted to recover it again the next time you open the program.)", "Auto-recovery")
+		else isrecover = question("Minecraft Note Block Studio在您工作时意外关闭了。要恢复您的文档吗？\n\n（如果点击“No”，下次打开软件时将会再次提示恢复。）", "自动恢复")
+		if (isrecover) {
 			// Create restore folder
 			if (!directory_exists_lib(restore_directory)) {
 				directory_create_lib(restore_directory);
@@ -662,7 +665,8 @@ function control_create() {
 			file_find_close();
 			
 			// Open restore folder
-			show_message(string(restored_count) + " " + condstr(restored_count > 1, "files have been restored.", "file has been restored."));
+			if (language != 1) show_message(string(restored_count) + " " + condstr(restored_count > 1, "files have been restored.", "file has been restored."));
+			else show_message(string(restored_count) + "个文件已恢复。");
 			open_url(restore_directory);
 		}
 	}
@@ -718,7 +722,8 @@ function control_create() {
 		var is_nbs = string_last_pos(".nbs", download_url_noparams) == len - 3;
 		var is_zip = string_last_pos(".zip", download_url_noparams) == len - 3;
 		if (!(is_nbs || is_zip)) {
-			message("Couldn't verify if the file you're trying to open is a valid song!", "Minecraft Note Block Studio")
+			if (language != 1) message("Couldn't verify if the file you're trying to open is a valid song!", "Minecraft Note Block Studio")
+			else message("所打开的文件不属于可以读取的格式！", "Minecraft Note Block Studio")
 			game_end()
 		} else {
 			var song_download_ext = string_copy(download_url_noparams, string_last_pos(".", download_url_noparams), string_length(download_url_noparams));
