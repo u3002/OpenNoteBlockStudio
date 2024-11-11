@@ -197,6 +197,51 @@ function draw_window_greeting() {
 	if (recent_song[0] = "")
 	 c += 34
 	b = x1 + 300
+	
+	// Note Block World button
+	a = mouse_rectangle(b, c, 224 * 1.5, 32)
+	a += (a && (mouse_check_button(mb_left) || mouse_check_button_released(mb_left)))
+	if (!hires || theme != 3) draw_sprite_ext(spr_frame2, a + 3 * theme + 3 * (fdark && theme = 3), b, c, 1.5, 1, 0, -1, 1)
+	else draw_sprite_ext(spr_frame2_hires, a + 3 * fdark, b, c, 0.25 * 1.5, 0.25, 0, -1, draw_get_alpha())
+	if (theme != 3) {
+		draw_sprite(spr_bigicons, 6, b + (a > 1), c + (a > 1))
+	} else {
+		if (!hires) {
+			if (!fdark) draw_sprite(spr_bigicons_f, 6, b + (a > 1), c + (a > 1))
+			else draw_sprite(spr_bigicons_d, 6, b + (a > 1), c + (a > 1))
+		} else {
+			if (!fdark) draw_sprite_ext(spr_bigicons_f_hires, 6, b + (a > 1), c + (a > 1), 0.25, 0.25, 0, -1, draw_get_alpha())
+			else draw_sprite_ext(spr_bigicons_d_hires, 6, b + (a > 1), c + (a > 1), 0.25, 0.25, 0, -1, draw_get_alpha())
+		}
+	}
+	if (language != 1) draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) - 7, "Browse songs made by the community");
+	else draw_text_dynamic(b + 48 + (a > 1) - 10, c + 9 + (a > 1), "Browse songs made by the community");
+	
+	// New badge
+	draw_set_color(accent[4]);
+	b += (-16);
+	c += 8;
+	draw_circle(b + 300 - 10, c, 8, false);
+	draw_rectangle(b + 300 - 8, c - 7, b + 300 + 8, c + 8, false);
+	draw_circle(b + 300 + 10, c, 8, false);
+	draw_set_color(c_white);
+	draw_theme_font(font_main_bold);
+	draw_text_dynamic(b + 300 - 14, c - 6, "NEW!");
+	draw_theme_font(font_main);
+	b -= (-16);
+	c -= 8;
+	
+	draw_set_color(c_gray);
+	if (language != 1) draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) + 7, "Go to noteblock.world");
+	else draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1) + 10, "Go to noteblock.world");
+	draw_theme_color();
+	if (a = 2 && mouse_check_button_released(mb_left)) {
+		if (windowsound && theme = 3) play_sound(soundinvoke, 45, 100, 50, 0)
+		open_url("https://noteblock.world/");
+	    return 1;
+	}
+	c += 44;
+	
 	a = mouse_rectangle(b, c, 224, 32)
 	a += (a && (mouse_check_button(mb_left) || mouse_check_button_released(mb_left)))
 	if (!hires || theme != 3) draw_sprite(spr_frame2, a + 3 * theme + 3 * (fdark && theme = 3), b, c)
@@ -220,31 +265,6 @@ function draw_window_greeting() {
 		windowclose = 0
 		windowopen = 0
 		open_midi("")
-	}
-
-	b = x1 + 300
-	c += 44
-	a = mouse_rectangle(b, c, 224, 32)
-	a += (a && (mouse_check_button(mb_left) || mouse_check_button_released(mb_left)))
-	if (!hires || theme != 3) draw_sprite(spr_frame2, a + 3 * theme + 3 * (fdark && theme = 3), b, c)
-	else draw_sprite_ext(spr_frame2_hires, a + 3 * fdark, b, c, 0.25, 0.25, 0, -1, draw_get_alpha())
-	if (theme != 3) {
-		draw_sprite(spr_bigicons, 6, b + (a > 1), c + (a > 1))
-	} else {
-		if (!hires) {
-			if (!fdark) draw_sprite(spr_bigicons_f, 6, b + (a > 1), c + (a > 1))
-			else draw_sprite(spr_bigicons_d, 6, b + (a > 1), c + (a > 1))
-		} else {
-			if (!fdark) draw_sprite_ext(spr_bigicons_f_hires, 6, b + (a > 1), c + (a > 1), 0.25, 0.25, 0, -1, draw_get_alpha())
-			else draw_sprite_ext(spr_bigicons_d_hires, 6, b + (a > 1), c + (a > 1), 0.25, 0.25, 0, -1, draw_get_alpha())
-		}
-	}
-	if (language != 1) draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1), "Watch tutorial videos")
-	else draw_text_dynamic(b + 48 + (a > 1), c + 9 + (a > 1), "教程视频")
-	if (a = 2 && mouse_check_button_released(mb_left)) {
-		if (windowsound && theme = 3) play_sound(soundinvoke, 45, 100, 50, 0)
-		if (language != 1) open_url("http://www.youtube.com/playlist?list=PL7EA4F0D271DA6E86")
-		else open_url("https://www.bilibili.com/video/BV1Mx411a76p")
 	}
 
 	if (display_mouse_get_x() - window_get_x() >= 0 && display_mouse_get_y() - window_get_y() >= 0 && display_mouse_get_x() - window_get_x() < 0 + window_width && display_mouse_get_y() - window_get_y() < 0 + window_height) {
