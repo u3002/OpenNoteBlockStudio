@@ -637,8 +637,33 @@ function control_create() {
 	// PREVIOUSLY DISABLED DUE TO https://github.com/OpenNBS/OpenNoteBlockStudio/issues/196
 	// Implemented in a better way that takes multiple instances into account.
 	if (file_find_first(backup_directory + "*.nbs", 0) != "" && !port_taken && !isplayer) {
-		if (question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?", "Auto-recovery")) {
-			open_url(backup_directory)
+		if (question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?\n\n(If you click 'No', you'll be prompted to recover it again the next time you open the program.)", "Auto-recovery")) {
+			// Create restore folder
+			if (!directory_exists_lib(restore_directory)) {
+				directory_create_lib(restore_directory);
+			}
+			
+			// Copy files to a new, safe location
+			var file_to_restore = file_find_first(backup_directory + "*.nbs", 0);
+			var restored_count = 0;
+			while (file_to_restore != "") {
+				files_copy_lib(backup_directory + file_to_restore, restore_directory + file_to_restore);
+				restored_count += 1;
+				file_to_restore = file_find_next();
+			}
+			file_find_close();
+			
+			// Delete original songs (only after everything has been copied!)
+			var file_to_delete = file_find_first(backup_directory + "*.nbs", 0);
+			while (file_to_delete != "") {
+				files_delete_lib(backup_directory + file_to_delete)
+				file_to_delete = file_find_next();
+			}
+			file_find_close();
+			
+			// Open restore folder
+			show_message(string(restored_count) + " " + condstr(restored_count > 1, "files have been restored.", "file has been restored."));
+			open_url(restore_directory);
 		}
 	}
 

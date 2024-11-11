@@ -1,6 +1,6 @@
 function backup_clear() {
 	// backup_clear()
-	// Deletes the backup file stored temporarily for auto-recovery
+	// Deletes the backup files stored temporarily for auto-recovery
 
 	var file = ""
 
@@ -10,6 +10,11 @@ function backup_clear() {
 	while(1) {
 		file = file_find_first(backup_directory + "*.nbs", 0)
 		if (file = "") break
+		
+		if (message_yesnocancel("There are still unrecovered songs in your auto-recovery folder. Would you like to recover them the next time you open the program?\n\n(If you click 'No', these files will be deleted permanently!)", "Unsaved files")) {
+			break;
+		}
+		
 		files_delete_lib(backup_directory + file)
 	}
 
