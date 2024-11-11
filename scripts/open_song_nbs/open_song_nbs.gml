@@ -135,6 +135,7 @@ function open_song_nbs(fn, sounds_path = "", safeopen) {
 	    add_to_recent(fn)
 	    window = w_menu
 	    filename = fn
+		song_backupname = filename_name(fn)
 	    changed = 0
 	    blocks_set_instruments()
 	    return 0
@@ -170,6 +171,7 @@ function open_song_nbs(fn, sounds_path = "", safeopen) {
 	    add_to_recent(fn)
 	    window = w_menu
 	    filename = fn
+		song_backupname = filename_name(fn)
 	    changed = 0
 	    blocks_set_instruments()
 	    return 0

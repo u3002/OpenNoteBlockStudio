@@ -98,7 +98,7 @@ function control_draw() {
 	if (totalblocks > 0) {
 		tonextbackup -= 1 / room_speed / 60
 		if (tonextbackup <= 0 && playing == 0) {
-			if (filename_name(filename)) {
+			if (filename_name(filename) != "") {
 				song_backupname = filename_name(filename)
 			} else {
 				song_backupname = "Unsaved song " + string(song_backupid) + ".nbs"

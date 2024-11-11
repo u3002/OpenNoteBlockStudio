@@ -46,6 +46,7 @@ function load_song() {
 		add_to_recent(fn)
 		if (window != w_instruments && song_name != "") window = w_songinfo
 		filename = fn
+		song_backupname = filename_name(filename);
 		changed = 0
 	}
 	else {

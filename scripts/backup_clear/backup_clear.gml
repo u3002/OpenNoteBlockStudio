@@ -29,3 +29,11 @@ function backup_delete_own_instance() {
 	}
 	
 }
+
+function update_backup_name() {
+	// Rename backup file to the current filename. Call when the active file of this window changes.
+	
+	file_rename_lib(backup_directory + song_backupname, backup_directory + filename_name(filename))
+	song_backupname = filename_name(filename)
+	tonextbackup = backupmins
+}

@@ -684,6 +684,7 @@ function control_create() {
 			// File drop, etc.
 			} else {
 				filename = arg;
+				song_backupname = filename_name(filename);
 			}
 			
 		}
