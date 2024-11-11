@@ -14,6 +14,7 @@ function draw_window_greeting() {
 		var hover_x = mouse_rectangle(x1 + 120, y1 + 3, 16, 16)
 		gpu_set_tex_filter(false)
 		draw_sprite(spr_donate, hover_x ? 1 : 0, x1, y1);
+		draw_sprite(spr_donate, (language == 1) ? 3 : 2, x1, y1);
 		gpu_set_tex_filter(true)
 		//popup_set_window(x1, y1, 150, 20, "Click to open our Open Collective\n page in your browser!");
 		if (hover_badge) {
