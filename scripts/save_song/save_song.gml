@@ -125,6 +125,11 @@ function save_song() {
 		add_to_recent(fn)
 		if (language != 1) set_msg("Song saved")
 		else set_msg("歌曲已保存")
+		
+		// Rename backup file to the current name
+		file_rename_lib(backup_directory + song_backupname, backup_directory + filename_name(fn))
+		song_backupname = filename_name(fn)
+		tonextbackup = backupmins
 	} else {
 		tonextbackup = backupmins
 	}

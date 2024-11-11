@@ -174,7 +174,9 @@ function control_create() {
 	    recent_song_time[a] = 0
 	}
 	timesignature = 4
+	randomise()
 	song_backupid = string(floor(random(800000)))
+	song_backupname = "Unsaved song " + song_backupid + ".nbs"
 	if (!directory_exists_lib(backup_directory)) {
 		directory_create_lib(backup_directory);
 	}

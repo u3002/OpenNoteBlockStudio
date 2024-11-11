@@ -15,3 +15,12 @@ function backup_clear() {
 
 
 }
+
+function backup_delete_own_instance() {
+	// Deletes only the backup file created by the calling instance.
+	
+	if (file_exists_lib(backup_directory + song_backupname)) {
+		files_delete_lib(backup_directory + song_backupname)
+	}
+	
+}
