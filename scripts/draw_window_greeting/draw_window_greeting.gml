@@ -93,7 +93,7 @@ function draw_window_greeting() {
 	if (language != 1) draw_text_center(x1 + 132, y1 + 280 + dev_label_offset, "An open-source Minecraft music maker")
 	else draw_text_center(x1 + 132, y1 + 280 + dev_label_offset, "一个开源的 Minecraft 音乐制作软件")
 	draw_set_color(make_color_rgb(62, 144, 255))
-	draw_text_url(x1 + 132, y1 + 296 + dev_label_offset, "opennbs.org", link_website)
+	draw_text_url(x1 + 132, y1 + 296 + dev_label_offset, "noteblock.studio", link_website)
 	draw_theme_color()
 	//if (language != 1) draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "Original created by David Norgren")
 	//else draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "原作者 David Norgren")
