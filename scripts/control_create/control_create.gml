@@ -175,6 +175,9 @@ function control_create() {
 	}
 	timesignature = 4
 	song_backupid = string(floor(random(800000)))
+	if (!directory_exists_lib(backup_directory)) {
+		directory_create_lib(backup_directory);
+	}
 	file_dnd_set_hwnd(hwnd_main)
 	file_dnd_set_enabled(true)
 	dndfile = ""
@@ -631,9 +634,9 @@ function control_create() {
 	// Auto-recovery
 	// PREVIOUSLY DISABLED DUE TO https://github.com/OpenNBS/OpenNoteBlockStudio/issues/196
 	// Implemented in a better way that takes multiple instances into account.
-	if (file_find_first(backup_file + "*_backup.nbs", 0) != "" && !port_taken && !isplayer) {
+	if (file_find_first(backup_directory + "*.nbs", 0) != "" && !port_taken && !isplayer) {
 		if (question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?", "Auto-recovery")) {
-			open_url(backup_file)
+			open_url(backup_directory)
 		}
 	}
 

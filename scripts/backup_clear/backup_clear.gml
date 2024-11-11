@@ -8,9 +8,9 @@ function backup_clear() {
 	//	files_delete_lib(backup_file)
 	//}
 	while(1) {
-		file = file_find_first(backup_file + "*_backup.nbs", 0)
+		file = file_find_first(backup_directory + "*.nbs", 0)
 		if (file = "") break
-		files_delete_lib(backup_file + file)
+		files_delete_lib(backup_directory + file)
 	}
 
 
