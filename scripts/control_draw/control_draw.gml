@@ -1510,10 +1510,11 @@ function control_draw() {
 
 	// Tabs
 	if (!fullscreen) {
-	if (theme = 0) draw_sprite_ext(spr_tabbar, 0, 0, 0, rw, 1, 0, -1, 1)
+	if (theme = 0 && !(isplayer && blackout)) draw_sprite_ext(spr_tabbar, 0, 0, 0, rw, 1, 0, -1, 1)
 	tab_x = 1
 	draw_theme_font(font_small)
 	draw_theme_color()
+	if (isplayer && blackout) draw_set_color(c_white)
 	if (language != 1) {
 		if (draw_tab("File")) {
 		    str = ""
@@ -2131,6 +2132,7 @@ function control_draw() {
 		// Marker position
 		if (theme != 3) draw_set_halign(fa_right)
 		draw_theme_color()
+		if (isplayer && blackout) draw_set_color(c_white)
 		if (!isplayer || dropmode) {
 		draw_theme_font(font_info_med_bold)
 		if (theme != 3) draw_text_dynamic(93, 52, time_str(marker_pos / tempo))
@@ -2147,6 +2149,7 @@ function control_draw() {
 		if (theme != 3) draw_text_dynamic(93, 69, "/ " + time_str(enda / tempo))
 		else draw_text_dynamic(93 - 67, 69, "/ " + time_str(enda / tempo))
 		} else {
+		if (blackout) draw_set_color(c_white)
 		draw_theme_font(font_info_med)
 		if (theme != 3) draw_text_dynamic(rw / 2 + 70, rh / 2 - 20, "/ " + time_str(enda / tempo))
 		else draw_text_dynamic(rw / 2 - 91 + 70, rh / 2 - 20, "/ " + time_str(enda / tempo))
@@ -2160,6 +2163,7 @@ function control_draw() {
 				marker_pos = draw_dragbar(marker_pos, enda, rw / 2 - 200, rh / 2 + 25, 400, 1, time_str((clamp(((mouse_x - (rw / 2 - 200)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
 				draw_set_halign(fa_left)
 				draw_theme_color()
+				if (blackout) draw_set_color(c_white)
 				draw_theme_font(font_info_med)
 				draw_text_dynamic(rw / 2 - 200, rh / 2 - 80, condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "", midiname), true))
 				draw_theme_font(font_main)

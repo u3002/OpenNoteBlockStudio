@@ -4,8 +4,8 @@ function draw_dragbar(value, max, x, y, length, id, str, kstr, window){
 	draw_theme_color()
 	if (theme = 3) {
 		draw_set_color(make_color_rgb(154, 154, 154))
-		if (fdark) draw_set_color(make_color_rgb(134, 134, 134))
 	}
+	if ((theme == 3 && fdark) || (isplayer && blackout)) draw_set_color(make_color_rgb(134, 134, 134))
 	draw_rectangle(x, y, x + length, y + 2 + (theme = 3), 0)
 	draw_set_alpha(0.5 * dropalpha)
 	if (theme = 3) {
@@ -22,7 +22,7 @@ function draw_dragbar(value, max, x, y, length, id, str, kstr, window){
 		draw_sprite(spr_icons, 9, x + (value / max) * length - 12, y + 1 - 11)
 	} else {
 		draw_set_color(c_white)
-		if (fdark) draw_set_color(make_color_rgb(69, 69, 69))
+		if (fdark || (isplayer && blackout)) draw_set_color(make_color_rgb(69, 69, 69))
 		draw_set_alpha(0.5 * dropalpha)
 		draw_circle(floor(x + (value / max) * length + 0.5), y + 1, 11, 0)
 		draw_set_alpha(1 * dropalpha)
