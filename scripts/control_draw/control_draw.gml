@@ -108,17 +108,6 @@ function control_draw() {
 		}
 	}
 
-	// Toggle blackout mode
-	if (keyboard_check_pressed(vk_f10)) {
-		blackout = !blackout
-		if (language != 1) {
-		if (blackout) set_msg("Blackout mode => ON")
-		else set_msg("Blackout mode => OFF")
-		} else {
-		if (blackout) set_msg("全黑模式 => 开启")
-		else set_msg("全黑模式 => 关闭")
-		}
-	}
 	// Toggle fullscreen
 	if (keyboard_check_pressed(vk_f11)) {
 		fullscreen = !fullscreen
@@ -130,6 +119,18 @@ function control_draw() {
 		else set_msg("全屏模式 => 关闭")
 		}
 	}
+	}
+	
+	// Toggle blackout mode
+	if (keyboard_check_pressed(vk_f10)) {
+		blackout = !blackout
+		if (language != 1) {
+		if (blackout) set_msg("Blackout mode => ON")
+		else set_msg("Blackout mode => OFF")
+		} else {
+		if (blackout) set_msg("全黑模式 => 开启")
+		else set_msg("全黑模式 => 关闭")
+		}
 	}
 
 	if (theme = 0) window_background = 15790320
