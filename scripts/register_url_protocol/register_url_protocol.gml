@@ -1,7 +1,7 @@
 function register_url_protocol() {
 
 	// We don't want to register the debug executable as a handler
-	if (RUN_FROM_IDE) return;
+	if (!RUN_FROM_IDE) return;
 
 	// Get NBS executable filename (first command line argument)
 	var nbs_executable = string_replace_all(parameter_string(0), "/", "\\");

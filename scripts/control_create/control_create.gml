@@ -11,7 +11,8 @@ function control_create() {
 	lib_init()
 
 	// Window
-	#macro RUN_FROM_IDE parameter_count()==3&&string_count("GMS2TEMP",parameter_string(2))
+	#macro RUN_FROM_IDE !string_count("GMS2TEMP", get_execution_command()) // THIS CONSTANT IS A REVERSE BOOLEAN (0 is from IDE)
+	//show_message(get_execution_command() + "IDE: " + string(RUN_FROM_IDE))
 	p_num = parameter_count()
 	isplayer = 0
 	for (var i = 0; i < p_num; i += 1) {
