@@ -46,6 +46,7 @@
     {"id":{"name":"string_height_dynamic","path":"scripts/string_height_dynamic/string_height_dynamic.yy",},"order":43,},
     {"id":{"name":"spr_scrollbar_h_bar_fill","path":"sprites/spr_scrollbar_h_bar_fill/spr_scrollbar_h_bar_fill.yy",},"order":0,},
     {"id":{"name":"draw_debug_overlay","path":"scripts/draw_debug_overlay/draw_debug_overlay.yy",},"order":42,},
+    {"id":{"name":"download_song_start","path":"scripts/download_song_start/download_song_start.yy",},"order":18,},
     {"id":{"name":"spr_scrollbar_h_bar_handle","path":"sprites/spr_scrollbar_h_bar_handle/spr_scrollbar_h_bar_handle.yy",},"order":1,},
     {"id":{"name":"spr_scrollbar_h_bar_left","path":"sprites/spr_scrollbar_h_bar_left/spr_scrollbar_h_bar_left.yy",},"order":2,},
     {"id":{"name":"string_format_thousands","path":"scripts/string_format_thousands/string_format_thousands.yy",},"order":10,},
