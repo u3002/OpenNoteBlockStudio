@@ -111,7 +111,7 @@ function control_create() {
 	// Application
 	update = 0
 	check_update = 1
-	check_prerelease = 0
+	check_prerelease = is_prerelease
 	update_success = 0
 	show_welcome = 1
 	scroll_wheel = 0

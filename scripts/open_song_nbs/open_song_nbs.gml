@@ -113,7 +113,7 @@ function open_song_nbs(fn, sounds_path = "", safeopen) {
 				ins: ins,
 				key: median(0, key, 87),
 				vel: vel,
-				pan: vel,
+				pan: pan,
 				pit: pit,
 			});
 	    }
