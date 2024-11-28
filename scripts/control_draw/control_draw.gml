@@ -454,7 +454,7 @@ function control_draw() {
 	if (floor(marker_pos) != floor(marker_prevpos) && floor(marker_pos) <= enda && (floor(marker_pos) != section_end || window = w_dragmarker || forward<>0 || marker_end = 0 || marker_prevpos >= section_end)) {
 	    var diff = floor(marker_pos) - floor(marker_prevpos)
 	    var start
-	    if (diff < 0 || diff > 3) {
+	    if (!playing || diff < 0 || diff > 3) {
 	        start = floor(marker_pos)
 	    } else {
 	        start = floor(marker_prevpos) + 1
