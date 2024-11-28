@@ -1,3 +1,11 @@
+Changes in v3.11.0 Beta 4 (2024.11.28):
+
+* Fixed note panning taking the value of velocity when loading a song.
+* The 'Check for development releases' is now enabled by default when installing
+   a development release.
+
+
+
 Changes in v3.11.0 Beta 3 (2024.11.28):
 
 Additions:
