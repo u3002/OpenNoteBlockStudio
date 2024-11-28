@@ -31,7 +31,9 @@ function download_song_start(download_url) {
 			song_download_display_name = string_copy(download_url_noparams, string_last_pos("/", download_url_noparams) + 1, string_length(download_url_noparams));
 			
 			// Init download
+			show_debug_message(string(song_download_data));
 			song_download_data = http_get_file(download_url, song_download_file);
+			show_debug_message(string(song_download_data));
 
 		}
 }

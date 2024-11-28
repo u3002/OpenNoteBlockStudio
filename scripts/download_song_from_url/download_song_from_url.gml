@@ -21,6 +21,7 @@ function download_song_from_url() {
 			}
 		} else if (status == 0) {
 			// Download was interrupted, may have been successful or not (if connection was interrupted)
+			show_debug_message("Download interrupted; may have been successful our not");
 			song_download_data = -1;
 			song_download_status = 0;
 			
@@ -36,12 +37,14 @@ function download_song_from_url() {
 				contentType = headers[? "Content-Type"];
 			}
 			var writtenFileSize = file_get_size(song_download_file);
+			show_debug_message("Written file size: " + string(writtenFileSize));
 			
 			// Check mimetype to see if response is a valid file
 			var invalid_type = false;
 			if (!is_undefined(contentType)) {
 				if !(contentType == "application/zip" || contentType == "application/octet-stream") {
 					invalid_type = true
+					show_debug_message("Invalid file type");
 				}
 			}
 			
@@ -56,6 +59,7 @@ function download_song_from_url() {
 			}
 			
 			if (!invalid_type && contentLength > 0 && writtenFileSize == contentLength) {
+				show_debug_message("Download complete!");
 				song_downloaded_size = song_total_size; // prevent freezing under 100%
 				show_debug_message(override_fn);
 				load_song(song_download_file, true); // load as backup file (keep unsaved, don't add to recent etc.)
