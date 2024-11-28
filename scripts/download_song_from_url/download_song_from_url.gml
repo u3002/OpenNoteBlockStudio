@@ -23,7 +23,7 @@ function download_song_from_url() {
 			// Download was interrupted, may have been successful or not (if connection was interrupted)
 			show_debug_message("Download interrupted; may have been successful our not");
 			song_download_data = -1;
-			song_download_status = 0;
+			song_download_status = 2;
 			
 			// The sizeDownloaded and contentLength variables may never be reported if the song is downloaded in one go.
 			// To avoid this from happening, we compare the Content-Length response header with the downloaded file's disk size.

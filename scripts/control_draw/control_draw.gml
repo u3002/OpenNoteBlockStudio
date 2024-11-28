@@ -2352,7 +2352,7 @@ function control_draw() {
 	}
 	
 	// Draw song download progress bar
-	if (song_download_status == 1) {
+	if (protocol_data != pointer_null && song_download_status < 2) {
 		window = -1
 		if (language != 1) draw_downloadprogress("Download", "Downloading song...", song_downloaded_size, song_total_size)
 		else draw_downloadprogress("下载", "正在下载乐曲......", song_downloaded_size, song_total_size)
