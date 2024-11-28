@@ -1,113 +1,60 @@
-Changes in v3.11.0 Beta 3 (TBD):
+Changes in v3.11.0 Beta 3 (2024.11.28):
 
-* Improved auto-backup so it will now lead you to the backup folder and will not
-   overwrite your song with multiple instances open!
-* Added the OpenNBS QQ group link to display when language is set to Chinese.
-* Fix macro windows when nothing is selected.
-* Fix auto-save countdown going into the negatives.
-* Fix compressing selection sometimes crashes the editor.
-* Fix missing notes after compressing selection.
-* Revert Windows app description due to it displaying as the program name in
-   Task Manager and Programs and Resources.
-* Reduced the increase audio channel option channel count from 32768 to 1024 for
-   optimization purpose.
-* Fix FPS affects flashing speed of piano when editing key binds.
-* Fix adding new layer above solo layers causes the buttons to break.
-* Fix volume slider number marker goes past intended range.
-* Added a check to turn transparency effect off if there was an error caused by that
-   in the last session.
+Additions:
 
+* Added a new auto-recovery system which takes multiple open instances into
+   account:
+   * Songs with unsaved changes are saved to a backup directory every 10 minutes.
+   * When NBS quits abnormally (due to a crash, power loss or system restart),
+   you'll be prompted to recover the files the next time you open the program.
+   * Clicking 'Yes' will copy the files to a restore directory so you can move them
+   somewhere else.
+   * Clicking 'No' will leave the unsaved files in the backup directory so you can
+   recover them later.
 
-Changes in v3.11.0 Beta 2 (2024.07.09):
+* The fade in and fade out macros now work relatively to each note's velocity,
+   multiplying it by the decay factor.
+   * Previously, only the first note block in each selected column would be taken
+   into account for determining all velocity values in that column.
+   * Notes at each end of the selection will no longer go down to velocity 0, or
+   into negative values.
 
-* Correctly applied the new audio export additions announced in Beta 1.
-* Added Chinese translations to the new features from Beta 1.
-* The social buttons in the About window no longer use the primary button style.
+* Blackout mode is now available in Player Mode, including the shortcut (F10)!
 
-
-Changes in v3.11.0 Beta 1 (2024.07.09):
-
-* Added a sound import assistant to help you use sounds from Minecraft: Java
-   Edition in your songs!
-    * Accessible from Settings > Import sounds from Minecraft.
-    * Make sure to launch the version you want from the Launcher before
-       importing its sounds. Set your Minecraft installation path and game version,
-       click the button to get sounds and watch them magically appear!
-    * The sounds from the selected version will be copied to the 'minecraft'
-       folder in your Sounds folder.
-
-* Note Block Studio now registers itself as a handler for the nbs:// URL
-   protocol on startup.
-    * This can be used to open NBS files from an external application, such as
-       a blog or website.
-    * By default, the program will launch in the player mode when handling the
-       protocol.
-    * To prevent security risks, the file won't be opened if it can't be
-       detected as a valid song, or if it's over a certain size.
-
-* It is now possible to save a song with its custom sound files attached.
-    * Reach over to File > Save song with instruments... to find this option.
-    * This makes sharing songs with custom instruments easier than ever!
-    * The saved file is a regular ZIP file containing the song, as well as the
-       sound files used in it.
-    * This feature replaces the 'Export sounds' option, previously accessible
-       from the Instruments window.
-
-* Added Minecraft version setting to data pack export.
-    * You can choose between 1.13-1.20 and 1.21+.
-    * This was necessary due to a change in the internal structure of data
-       packs, in order to not break compatibility with older versions.
-
-* Added new OpenNBS social links to the greeting window, the Help menu and the
-   About window.
-
-* Added donation links! If Note Block Studio is useful to you and you'd like to
-   support its development, feel free to check out these options.
-
+* Added a button to the greeting window to open Note Block World, our brand
+   new website for browsing and sharing note block songs!
 
 Bugfixes and improvements:
 
-* All operations involving selections are now much, much faster - including
-   loading a song, moving, selecting, placing and deleting notes, changing note
-   properties, applying macros, and undoing or redoing actions.
-* All macro operations can now be properly undone.
-* The 'Max loop count' option is now respected during playback.
-* The 'Show note chart' option now shows flat notes if the 'Use flat notes'
-   option is enabled.
-* The Chorus macro now better handles selections with more than three layers.
-* Fixed an error that would cause note blocks/command blocks in the track
-   export to be missing.
-* The resource pack used to play notes outside the 2-octave range can now be
-   saved from the Compatibility window.
-* Blackout mode is now available in player mode.
-* The popup shown when the data pack export is complete now shows the syntax to
-   play the song from a command block.
-* Added 'Schematic' and 'Structure Block' labels to the different Minecraft
-   version options in schematic export.
-* Fixed changing auto-save preferences marking song as unsaved.
-* Fixed a softlock caused by an auto-save triggering while a window is open.
-* The song is now marked as unsaved when changing the tempo.
-* The song is now marked as unsaved when toggling a layer's solo setting.
-* Solo layers are now loaded properly from songs.
-* Fixed the initial value of the tempo input box not following the current
-   tempo.
-* Fixed layer names below the workspace visible area getting deleted when
-   adding a new layer.
-* Fixed the note count in the Discord Rich Presence activity indicator having
-   an extra thousands separator at the start.
-* Fixed song author and original author fields in the Song info window not
-   using the Fluent theme's accent color.
-* Fixed previous data pack exported contents not being deleted from the temp
-   folder, causing them to reappear on subsequent exports.
-* Updated bundled resource packs to Minecraft: Java Edition 1.21.0.
-* Fixed a crash when clicking links in the About window credits box.
-* Fixed the demo songs using wrong custom instrument paths.
+* The link for the OpenNBS QQ group will be displayed instead of Discord when
+   the language is set to Chinese.
+* Added a small banner to the greeting window which lets you buy us a coffee.
+   Thank you!
+* Macro windows are now closed immediately if no note blocks are selected,
+   which should prevent certain softlock cases.
+* Fixed auto-save ticking down into negative values and saving the song every
+   frame once the timer reaches zero.
+* Fixed opening songs with the nbs:// URL protocol not working in some cases.
+* Fixed a crash when compressing a selection with some particular note
+   arrangements.
+* Loading and saving songs have been made much faster.
+* Fixed the application name in Task Manager, Programs and Resources etc.
+   being incorrectly set to a description.
+* Fixed solo button states not moving together with the layers when adding a
+   new layer above a solo layer.
+* Fixed the volume slider number popup going past the intended range.
+* Transparency effects are now disabled if setting them up failed in the last
+   session.
+* Fixed the piano keybind flashing faster while being edited according to your
+   FPS setting.
+* Reduced the maximum channel count with 'Use more audio channels' enabled
+   from 32,768 to 1,024, the largest possible value.
+* Removed the button to watch tutorial videos from the greeting window.
+* Fixed offset of vertical bars (|) in the greeting window links while using the
+   classic themes due to their wider font.
+* Replaced the opennbs.org url with noteblock.studio.
+* Updated credits in the About window.
 
-Hidden changes:
-
-* Added tempo changer support to audio export.
-* Added tempo changer support to MIDI import.
-* Fix tempo changer not working when starting playback at its own tick.
 
 
 
