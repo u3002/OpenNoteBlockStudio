@@ -1,18 +1,23 @@
 *CREDITS
 *---
 
-*Originally created by
-David Norgren
-stuffbydavid.com|https://www.stuffbydavid.com/
+*Lead developer
+Bentroen
 
-*Published by
-HielkeMinecraft
+*Project managers
+Bentroen
+encode42
 
 *Developers
-HielkeMinecraft
-ShinkoNet
 Bentroen
 chenxi050402
+
+*Former developers
+Hielke
+ShinkoNet
+
+*Originally created by
+David Andrei
 
 *Additional designs
 LeakyJAZZ
@@ -36,20 +41,20 @@ by the NumPy contributors
 GMPython|https://github.com/Bentroen/GMPython
 by Bentroen
 
-nbswave|https://github.com/Bentroen/nbswave
+nbswave|https://github.com/OpenNBS/nbswave
 by Bentroen
 
 audio-DLL|https://github.com/stuffbydavid/audio-DLL/
-by David Norgren
+by David Andrei
 
 midi-input-DLL|https://github.com/stuffbydavid/midi-input-DLL/
-by David Norgren
+by David Andrei
 
 window-DLL|https://github.com/stuffbydavid/window-DLL/
-by David Norgren
+by David Andrei
 
 file-DLL|https://github.com/stuffbydavid/file-DLL
-by David Norgren
+by David Andrei
 
 Realtime Blur|https://foxyofjungle.itch.io/realtime-blur
 by Foxy Of Jungle
