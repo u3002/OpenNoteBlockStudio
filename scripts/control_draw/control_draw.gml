@@ -4,7 +4,6 @@ function control_draw() {
 
 	var targetspeed = 1000000 / room_speed
 	currspeed = targetspeed / delta_time
-	show_debug_message(1 / currspeed)
 	if (1 / currspeed > 100.0) { // Cancel lag compensation if too much time has elapsed (i.e. dragging window, resizing etc.)
 		currspeed = 1.0
 	}
