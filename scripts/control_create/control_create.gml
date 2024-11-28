@@ -704,6 +704,9 @@ function control_create() {
 	// Download song
 	if (protocol_data != pointer_null) {
 		var download_url = string_replace(protocol_data, "nbs://", "")
+		download_url = string_replace(download_url, "https//", "https://") // Re-add : stripped from URL
+		download_url = string_replace(download_url, "http//", "http://")
+		download_song_start(download_url)
 	}
 	// Open song
 	else if (filename != "") {
