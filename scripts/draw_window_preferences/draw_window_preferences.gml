@@ -373,8 +373,8 @@ function draw_window_preferences() {
 		//	if (draw_radiobox(x1 + 40 + 100, y1 + (theme = 3) * 22 + 164 + 16 + 20 + 20, fdark, "Dark", "Use the dark mode.")) fdark = 1
 		//}
 		if (theme = 3) draw_theme_font(font_info_med)
-	    if (language != 1) draw_areaheader(x1+258,y1+74 + (theme = 3) * 22,220,60,"Max frame rate (experimental)")
-	    else draw_areaheader(x1+258,y1+74 + (theme = 3) * 22,220,60,"帧率限制（实验性功能）")
+	    if (language != 1) draw_areaheader(x1+258,y1+74 + (theme = 3) * 22,220,60,"Max. frame rate")
+	    else draw_areaheader(x1+258,y1+74 + (theme = 3) * 22,220,60,"帧率限制")
 		if (theme = 3) draw_theme_font(font_main)
 		draw_area(x1 + 274, y1 + 74 + 16 + (theme = 3) * 22 + 5, x1 + 374, y1 + 74 + 16 + 20 + (theme = 3) * 22 + 5)
 		if (draw_abutton(x1 + 374 - 17, y1 + 74 + 17 + (theme = 3) * 22 + 5) && wmenu = 0) {
