@@ -2302,7 +2302,8 @@ function control_draw() {
 	if (!fullscreen && ((show_piano && !isplayer) || dropmode)) {
 		if (!dropmode) draw_piano(floor(rw / 2 - (keysshow * 39) / 2), rh - 154, keysshow, totalcols)
 		else draw_piano(floor(rw / 2 - (52 * 39) / 2), rh - 154, 52, totalcols)
-		if (mouse_rectangle(floor(rw / 2 - (keysshow * 39) / 2), rh - 162, keysshow * 39, 136) && window = 0) curs = cr_handpoint
+		var key_count = (dropmode ? 52 : keysshow)
+		if (mouse_rectangle(floor(rw / 2 - (key_count * 39) / 2), rh - 162, key_count * 39, 136) && window = 0) curs = cr_handpoint
 	}
 
 	// End selecting
