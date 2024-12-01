@@ -509,6 +509,7 @@ function control_draw() {
 		    }
 		}
 	}
+	if (tempo < 0.25) tempo = 0.25
 	if (window = w_dragselection) {
 	    selection_x = starta + floor((mouse_x - (x1 + 2)) / 32) - select_pressa
 	    selection_y = startb + floor((mouse_y - (y1 + 34)) / 32) - select_pressb
