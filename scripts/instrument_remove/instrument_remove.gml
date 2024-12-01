@@ -9,6 +9,14 @@ function instrument_remove(ins) {
 		}
 	}
 	
+	// Remove this instrument from MIDI devices that might be using it
+	for (d = 0; d < midi_devices; d += 1) {
+		var midi_ins = mididevice_instrument[d]
+		if (midi_ins == ins) {
+			mididevice_instrument[d] = -1; // fall back to 'Use selected'
+		}
+	}
+	
 	with (ins) {
 		instrument_free()
 		ds_list_delete_value(other.instrument_list, ins)
