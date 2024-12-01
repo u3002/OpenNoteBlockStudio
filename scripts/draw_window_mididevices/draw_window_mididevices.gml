@@ -70,7 +70,8 @@ function draw_window_mididevices() {
 	    draw_text_dynamic(x1 + 18 + 250 + 75, y1 + 90 + 20 * a, insname)
 	    if (draw_abutton(x1 + 18 + 250 + 75 + 64 + 85 - 24, y1 + 88 + 20 * a)) {
 	        var inslist, menu;
-	        inslist = check(mididevice_instrument[a] = -3) + "禁用设备|" + check(mididevice_instrument[a] = -2) + "无|" + check(mididevice_instrument[a] = -1) + "使用选择的|-|"
+	        inslist = check(mididevice_instrument[a] = -3) + "Disable device|" + check(mididevice_instrument[a] = -2) + "None|" + check(mididevice_instrument[a] = -1) + "Use selected|-|"
+	        if (language = 1) inslist = check(mididevice_instrument[a] = -3) + "禁用设备|" + check(mididevice_instrument[a] = -2) + "无|" + check(mididevice_instrument[a] = -1) + "使用选择的|-|"
 	        for (b = 0; b < ds_list_size(instrument_list); b += 1) {
 	            var ins = instrument_list[| b];
 	            if (b = first_custom_index) inslist += "-|"
