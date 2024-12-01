@@ -2224,9 +2224,9 @@ function control_draw() {
 					if (song_author == "") offset += 15
 					draw_theme_font(font_main)
 					draw_set_color(c_gray)
-					draw_text_dynamic(centerx - 200, centery - 45 - offset, (language != 1 ? "original by " : "original by "), true)
+					draw_text_dynamic(centerx - 200, centery - 45 - offset, (language != 1 ? "original by " : "原作者 "), true)
 					draw_theme_font(font_main_bold)
-					draw_text_dynamic(centerx - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), centery - 45 - offset, song_orauthor, true)
+					draw_text_dynamic(centerx - 200 + string_width_dynamic(language != 1 ? "original by " : "原作者 "), centery - 45 - offset, song_orauthor, true)
 				}
 				draw_theme_font(font_main)
 				draw_set_color(c_white)
