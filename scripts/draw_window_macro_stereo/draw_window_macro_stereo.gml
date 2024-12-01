@@ -25,7 +25,7 @@ function draw_window_macro_stereo() {
 	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "Reversed", "Stereo is done in the inverse direction.")) stereo_reverse=!stereo_reverse
 	draw_areaheader(x1 + 10, y1 + 53, 120, 35, "Stereo width")
 	} else {
-	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "反转", "反方向应用延长音。")) stereo_reverse=!stereo_reverse
+	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "反转", "反方向应用立体效果。")) stereo_reverse=!stereo_reverse
 	draw_areaheader(x1 + 10, y1 + 53, 120, 35, "立体程度")
 	}
 	stereo_width = median(0, draw_dragvalue(11, x1 + 55, y1 + 65, stereo_width, 0.5), 100)
