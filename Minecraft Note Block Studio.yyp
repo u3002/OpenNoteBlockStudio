@@ -705,7 +705,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/Data/Sounds","resourceVersion":"1.0","name":"flute.ogg","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data/Sounds","resourceVersion":"1.0","name":"xylobone.ogg","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data/Sounds","resourceVersion":"1.0","name":"pling.ogg","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles/Data","resourceVersion":"1.0","name":"changelog.txt","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data","resourceVersion":"1.0","name":"file.dll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data","resourceVersion":"1.0","name":"gmbinaryfile.dll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data","resourceVersion":"1.0","name":"extranotes.zip","resourceType":"GMIncludedFile",},
@@ -1612,6 +1611,8 @@
     {"CopyToMask":-1,"filePath":"datafiles/Data/Python/Lib/site-packages/numpy/_typing","resourceVersion":"1.0","name":"_shape.pyc","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data/Python/Lib/site-packages/numpy/_typing","resourceVersion":"1.0","name":"_ufunc.pyi","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/Data/Python/Lib/site-packages/numpy/_typing","resourceVersion":"1.0","name":"__init__.pyc","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/Data","resourceVersion":"1.0","name":"changelog.txt","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Launch Debug.bat","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2022.6.1.26",
