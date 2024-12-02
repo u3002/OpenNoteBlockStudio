@@ -22,7 +22,7 @@ function draw_window_macro_stereo() {
 	    draw_rectangle(x1 + 6, y1 + 26, x1 + 134, y1 + 92, 1)
 	}
 	if (language != 1) {
-	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "Reversed", "Delay is done in the inverse direction.")) stereo_reverse=!stereo_reverse
+	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "Reversed", "Stereo is done in the inverse direction.")) stereo_reverse=!stereo_reverse
 	draw_areaheader(x1 + 10, y1 + 53, 120, 35, "Stereo width")
 	} else {
 	if (draw_checkbox(x1 + 10, y1 + 30, stereo_reverse, "反转", "反方向应用延长音。")) stereo_reverse=!stereo_reverse
