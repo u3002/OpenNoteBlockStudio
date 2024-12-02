@@ -45,12 +45,12 @@ function control_draw() {
 	if refreshrate = 2 game_set_speed(120,gamespeed_fps)
 	if refreshrate = 3 game_set_speed(144,gamespeed_fps)
 	if refreshrate = 4 game_set_speed(240,gamespeed_fps)
-	editline += 30 / (room_speed)
+	editline += 30 / (room_speed) * (1 / currspeed)
 	if (editline > 60) editline = 0
 	if (delay > 0) delay -= 1 / (room_speed / 20)
 	if (delay < 0) delay = 0
 	if (!isplayer) {
-		work_mins += 1 / (room_speed * 60)
+		work_mins += 1 / (room_speed * 60)  * (1 / currspeed)
 	}
 	
 	file_dnd_set_files("*.nbs;*.mid;*.midi;*.nbp", 1, 0, 0)
@@ -95,7 +95,7 @@ function control_draw() {
 	if (!isplayer) {
 	// Autosave
 	if (autosave && filename_ext(filename) = ".nbs") {
-	    tonextsave -= 1 / room_speed / 60
+	    tonextsave -= 1 / room_speed / 60 * (1 / currspeed)
 	    if (tonextsave <= 0 && playing == 0) {
 			tonextsave = autosavemins
 			save_song(filename, true)
@@ -104,7 +104,7 @@ function control_draw() {
 
 	// Auto-recovery
 	if (totalblocks > 0) {
-		tonextbackup -= 1 / room_speed / 60
+		tonextbackup -= 1 / room_speed / 60 * (1 / currspeed)
 		if (tonextbackup <= 0 && playing == 0) {
 			if (filename_name(filename) != "") {
 				song_backupname = filename_name(filename)
