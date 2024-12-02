@@ -307,6 +307,7 @@ function control_create() {
 	dragvol = 0
 	dragstereob = 0
 	dragstereo = 0
+	selected_layers = ds_list_create()
 
 	// Piano
 	show_piano = 1

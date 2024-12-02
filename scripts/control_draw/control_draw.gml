@@ -1398,11 +1398,18 @@ function control_draw() {
 			// Select all
 		    if (draw_layericon(2, x1 + 162 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Select all note blocks in this layer\n(Hold Ctrl to select multiple layers)", "选择本层所有方块\n（按住Ctrl选择多层）"), 0, 0)) {
 		        playing = 0
-				if (!keyboard_check(vk_control)) {
-					selection_place(0)
+				
+				// TODO: replace with array_contains() if we ever upgrade GameMaker...
+				var layer_id = startb + b
+				var layer_selected = ds_list_find_index(selected_layers, layer_id) > -1
+				if (layer_selected) {
+					selection_remove(0, startb + b, enda, startb + b, 0, 0)
+					ds_list_delete_value(selected_layers, layer_id)
+				} else {
+					selection_add(0, startb + b, enda, startb + b, 0, 0)
+					ds_list_add(selected_layers, layer_id)
 				}
-		        selection_add(0, startb + b, enda, startb + b, 0, 0)
-		    }
+			}
 			// Add layer
 		    if (draw_layericon(3, x1 + 180 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Add empty layer here", "新建层"), 0, 0)) {
 		        playing = 0
