@@ -1,3 +1,79 @@
+Changes in v3.11.0 Beta 5 (2024.12.02):
+
+Additions:
+
+* The behavior for clicking layer buttons has been changed:
+   * Multiple buttons can now be pressed consecutively by holding the left mouse
+   button and dragging the mouse over them.
+   * This should make it much easier to add, remove, select, lock and solo multiple
+   layers!
+
+* Holding Ctrl is no longer necessary to select multiple layers.
+
+* Selected layers can now be deselected by pressing the 'Select all blocks in this
+   layer' button a second time.
+
+* Removed the 'Loop to bar end' option.
+   * This option was misleading in that it 'masked' the true loop point of the song,
+   which is after the last tick, causing playback behavior to vary across different
+   NBS installations.
+   * To make sure your songs loop at the right point, add a note block with velocity
+   0 at the last tick before the looping point.
+   * This setting may be re-added in the future as a property stored in each song file.
+
+* Added an entry in the File menu for restoring unsaved files.
+
+* If present, song author and original author are now displayed in the main view
+   for the Player Mode.
+
+Bugfixes and improvements:
+
+* Fixed songs not loading when opened via Explorer or by dragging and dropping.
+* Fixed backup file for packed songs being saved with the .zip extension, despite
+   them being .nbs files.
+* Lag compensation is now cancelled if too much time has elapsed (for example,
+   when moving the window around). Playback will resume from the previous
+   point instead of skipping a large section.
+* Lag compensation is now applied to more timers, which should be more
+    accurate:
+   * Auto-save and backup saving timers;
+   * Flash animation when editing piano keyboard shortcuts;
+   * Time tracker for minutes spent in a song;
+   * Scrollbar appear animation for fullscreen mode.
+* Ticks behind the playback marker will no longer play when dragging it around.
+* Silent notes have been added at the end of the demo songs to make sure they
+   loop at the proper point.
+* Songs opened via the nbs:// URL protocol have the file extension removed from
+   their display name.
+* Fixed pointer cursor not appearing when hovering keys at the edges of the
+   piano in Player Mode.
+* Fixed the Player Mode playback progress bar going past its intended length at
+   the end of a song.
+* Fixed blurry appearance of the Player Mode's central area with odd window
+   dimensions.
+* Fixed dropdown menu for MIDI devices not displaying text properly in the
+   English language.
+* Fixed incorrect entries for the bass drum sounds in the sounds.json file for the
+   extra notes resource pack.
+* Fixed the Stereo macro being referred to as 'delay' in the tooltip for the
+   'Reversed' checkbox.
+* Fixed a crash when playing an instrument that was assigned to a MIDI device.
+* Fixed swapped arrows for the instrument selection box when using
+   high-resolution textures.
+* Fixed original author not displaying in the accent color in the song stats window
+   when using the Fluent theme.
+* Added a debug launch option to get additional logs for bug reporting.
+* Updated the asset index version names for Minecraft: Java Edition 1.21.2 and
+   1.21.4 (18 and 19).
+* Removed the 'experimental' label from the max. frame rate setting.
+
+Hidden changes:
+
+* Tempo can no longer be set to under 0.25 ticks per second with tempo changers.
+* Added tempo change indicators to the timeline.
+
+
+
 Changes in v3.11.0 Beta 4 (2024.11.28):
 
 * Fixed note panning taking the value of velocity when loading a song.
