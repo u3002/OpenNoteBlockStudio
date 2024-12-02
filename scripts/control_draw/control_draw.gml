@@ -27,6 +27,11 @@ function control_draw() {
 		else window_reset_icon_raw(window_handle())
 	}
 	
+	if (mouse_check_button_pressed(mb_left)) {
+		mousepress_x = mouse_x
+		mousepress_y = mouse_y
+	}
+	
 	if (!mouseover) curs = cr_default
 	showmenu = 0
 	cursmarker = 0

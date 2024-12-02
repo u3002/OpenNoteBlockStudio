@@ -12,6 +12,12 @@ function draw_layericon(argument0, argument1, argument2, argument3, argument4, a
 
 	popup_set(xx, yy, 16, 16, str)
 	a = (mouse_rectangle(xx, yy, 16, 16) && window = 0 && locked = 0 && sb_drag = -1)
+	
+	var mouse_in_prev = (mouse_xprev >= xx && mouse_yprev >= yy && mouse_xprev <= xx + 16 && mouse_yprev <= yy + 16)
+	var mouse_entered = (mouse_check_button(mb_left) && (!mouse_in_prev && a))
+	//var mousepress_started_in = (mousepress_x >= xx && mousepress_y >= yy && mousepress_x <= xx + 16 && mousepress_y <= yy + 16)
+	//var mouse_pressed_and_moved_away = false // mousepress_started_in && (mouse_in_prev && !a && mouse_check_button(mb_left))
+	
 	a += ((mouse_check_button(mb_left) || mouse_check_button_released(mb_left)) && a)
 	if (pressed = 1) {
 	    if (!hires || theme != 3) draw_sprite(spr_frame4, 2 + 3 * theme, xx, yy)
@@ -31,7 +37,7 @@ function draw_layericon(argument0, argument1, argument2, argument3, argument4, a
 		draw_sprite_ext(spr_layericons_f_hires, i - locked + 18, xx + (a = 2 || pressed = 1), yy + (a = 2 || pressed = 1), 0.25, 0.25, 0, accent[6 - 2 * !fdark], 1)
 	}
 	}
-	return (a && mouse_check_button_released(mb_left))
+	return (mouse_entered || (a && mouse_check_button_pressed(mb_left)))
 
 
 }

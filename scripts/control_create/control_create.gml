@@ -381,6 +381,8 @@ function control_create() {
 	insselect = -1
 	mouse_xprev = mouse_x
 	mouse_yprev = mouse_y
+	mousepress_x = -1
+	mousepress_y = -1
 	asso_nbs = 1
 	asso_midi = 0
 	asso_sch = 0
