@@ -64,7 +64,7 @@ function download_song_from_url() {
 				show_debug_message(override_fn);
 				load_song(song_download_file, true); // load as backup file (keep unsaved, don't add to recent etc.)
 				if (override_fn != "") {
-					song_download_display_name = override_fn; // override title bar display name
+					song_download_display_name = filename_change_ext(override_fn, ""); // override title bar display name
 				}
 				files_delete_lib(song_download_file);
 			} else {
