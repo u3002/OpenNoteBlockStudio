@@ -553,14 +553,14 @@ function draw_window_preferences() {
 	    if (draw_checkbox(x1 + 40, y1 + (theme = 3) * 22 + 170, marker_start, "Start playing in section", "Whether to always start playing\nat the start of the active section.")) marker_start=!marker_start
 	    if (draw_checkbox(x1 + 40, y1 + (theme = 3) * 22 + 190, marker_end, "Stop playing after section", "Whether to stop playing when the\nmarker passes the active section.")) marker_end=!marker_end
 		if (theme = 3) draw_theme_font(font_info_med)
-	    draw_areaheader(x1 + 22, y1 + 244 + (theme = 3) * 22, 218, 140, "Playing")
+	    draw_areaheader(x1 + 22, y1 + 244 + (theme = 3) * 22, 218, 120, "Playing")
 		if (theme = 3) draw_theme_font(font_main)
 	    if (draw_checkbox(x1 + 32, y1 + 244 + 16 + (theme = 3) * 22, realvolume, "Show layer volumes", "Whether to show the volume of layers.")) realvolume=!realvolume
 		if (draw_checkbox(x1 + 32, y1 + 264 + 16 + (theme = 3) * 22, realstereo, "Disable stereo", "Disables stereo playback.")) realstereo = !realstereo
-		if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, looptobarend, "Loop to bar end", "Loops to the end of the bar/measure.")) looptobarend = !looptobarend
-		if (draw_checkbox(x1 + 32, y1 + 304 + 16 + (theme = 3) * 22, show_soundcount, "Show number of active sounds", "Displays the number of sounds that are\ncurrently playing in the status bar.")) show_soundcount = !show_soundcount
-		if (draw_checkbox(x1 + 32, y1 + 324 + 16 + (theme = 3) * 22, channelstoggle, "Use more audio channels", "Whether to increase the number\nof sounds that can play at once.")) channelstoggle = !channelstoggle
-		if (draw_checkbox(x1 + 32, y1 + 344 + 16 + (theme = 3) * 22, taskbar, "Enable taskbar indicator", "Whether to display the song\nprogress on the taskbar.")) taskbar = !taskbar
+		//if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, looptobarend, "Loop to bar end", "Loops to the end of the bar/measure.")) looptobarend = !looptobarend
+		if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, show_soundcount, "Show number of active sounds", "Displays the number of sounds that are\ncurrently playing in the status bar.")) show_soundcount = !show_soundcount
+		if (draw_checkbox(x1 + 32, y1 + 304 + 16 + (theme = 3) * 22, channelstoggle, "Use more audio channels", "Whether to increase the number\nof sounds that can play at once.")) channelstoggle = !channelstoggle
+		if (draw_checkbox(x1 + 32, y1 + 324 + 16 + (theme = 3) * 22, taskbar, "Enable taskbar indicator", "Whether to display the song\nprogress on the taskbar.")) taskbar = !taskbar
 		if (theme = 3) draw_theme_font(font_info_med)
 		draw_areaheader(x1 + 233 + 22, y1 + 244 + (theme = 3) * 22, 223, 60, "Tempo unit")
 		if (theme = 3) draw_theme_font(font_main)
@@ -577,14 +577,14 @@ function draw_window_preferences() {
 	    if (draw_checkbox(x1 + 40, y1 + (theme = 3) * 22 + 170, marker_start, "在区间时开始播放", "有区间存在时是否在区间起始处开始播放。")) marker_start=!marker_start
 	    if (draw_checkbox(x1 + 40, y1 + (theme = 3) * 22 + 190, marker_end, "在区间后停止播放", "有区间存在时是否在区间结束处停止播放。")) marker_end=!marker_end
 		if (theme = 3) draw_theme_font(font_info_med)
-	    draw_areaheader(x1 + 22, y1 + 244 + (theme = 3) * 22, 218, 140, "播放")
+	    draw_areaheader(x1 + 22, y1 + 244 + (theme = 3) * 22, 218, 120, "播放")
 		if (theme = 3) draw_theme_font(font_main)
 	    if (draw_checkbox(x1 + 32, y1 + 244 + 16 + (theme = 3) * 22, realvolume, "显示每层音量", "是否显示每层的音量。")) realvolume=!realvolume
 		if (draw_checkbox(x1 + 32, y1 + 264 + 16 + (theme = 3) * 22, realstereo, "关闭立体声", "关闭立体声音效。")) realstereo = !realstereo
-		if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, looptobarend, "循环至小节尾", "到小节尾再循环。")) looptobarend = !looptobarend
-		if (draw_checkbox(x1 + 32, y1 + 304 + 16 + (theme = 3) * 22, show_soundcount, "显示正在播放的声音数", "在状态栏里显示正在播放的声音数。")) show_soundcount = !show_soundcount
-		if (draw_checkbox(x1 + 32, y1 + 324 + 16 + (theme = 3) * 22, channelstoggle, "提升声音限制", "提升可同时播放的声音数。")) channelstoggle = !channelstoggle
-		if (draw_checkbox(x1 + 32, y1 + 344 + 16 + (theme = 3) * 22, taskbar, "启用任务栏进度", "是否在任务栏显示当前歌曲的进度。")) taskbar = !taskbar
+		//if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, looptobarend, "循环至小节尾", "到小节尾再循环。")) looptobarend = !looptobarend
+		if (draw_checkbox(x1 + 32, y1 + 284 + 16 + (theme = 3) * 22, show_soundcount, "显示正在播放的声音数", "在状态栏里显示正在播放的声音数。")) show_soundcount = !show_soundcount
+		if (draw_checkbox(x1 + 32, y1 + 304 + 16 + (theme = 3) * 22, channelstoggle, "提升声音限制", "提升可同时播放的声音数。")) channelstoggle = !channelstoggle
+		if (draw_checkbox(x1 + 32, y1 + 324 + 16 + (theme = 3) * 22, taskbar, "启用任务栏进度", "是否在任务栏显示当前歌曲的进度。")) taskbar = !taskbar
 		if (theme = 3) draw_theme_font(font_info_med)
 		draw_areaheader(x1 + 233 + 22, y1 + 244 + (theme = 3) * 22, 223, 60, "速度单位")
 		if (theme = 3) draw_theme_font(font_main)

@@ -1060,7 +1060,7 @@ function control_draw() {
 			}
 		}
 		//loop song
-		if (loop_session = 1 && marker_pos > enda + 1 && (!looptobarend || marker_pos mod (timesignature * 4) < 1)) {
+		if (loop_session = 1 && marker_pos > enda + 1) { // && (!looptobarend || marker_pos mod (timesignature * 4) < 1)
 			--timestoloop
 			starta = loopstart
 			marker_pos = starta

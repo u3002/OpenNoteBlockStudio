@@ -393,7 +393,7 @@ function control_create() {
 	loop = 0
 	loopmax = 0
 	loopstart = 0
-	looptobarend = 1
+	//looptobarend = 1
 	timestoloop = loopmax
 	settempo = 0 // Tempo input box clicked
 	taptempo = 0 // Tempo in measuring
