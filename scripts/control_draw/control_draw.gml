@@ -2208,8 +2208,16 @@ function control_draw() {
 				draw_theme_color()
 				if (blackout) draw_set_color(c_white)
 				draw_theme_font(font_info_med)
-				draw_text_dynamic(rw / 2 - 200, rh / 2 - 80, condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "", midiname), true))
+				draw_text_dynamic(rw / 2 - 200, rh / 2 - 110, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
+				draw_theme_font(font_main_bold)
+				draw_text_dynamic(rw / 2 - 200, rh / 2 - 90, song_author, true)
 				draw_theme_font(font_main)
+				draw_set_color(c_gray)
+				draw_text_dynamic(rw / 2 - 200, rh / 2 - 75, (language != 1 ? "original by " : "original by "), true)
+				draw_theme_font(font_main_bold)
+				draw_text_dynamic(rw / 2 - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), rh / 2 - 75, song_orauthor, true)
+				draw_theme_font(font_main)
+				draw_set_color(c_white)
 				dropalpha = 1
 			} else {
 				draw_set_alpha(dropalpha)
