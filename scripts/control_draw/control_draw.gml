@@ -2202,7 +2202,7 @@ function control_draw() {
 		
 		if (isplayer) {
 			if (!dropmode) {
-				marker_pos = draw_dragbar(marker_pos, enda, rw / 2 - 200, rh / 2 + 25, 400, 1, time_str((clamp(((mouse_x - (rw / 2 - 200)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
+				marker_pos = draw_dragbar(marker_pos, enda + totalcols, rw / 2 - 200, rh / 2 + 25, 400, 1, time_str((clamp(((mouse_x - (rw / 2 - 200)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
 				draw_set_halign(fa_left)
 				draw_theme_color()
 				if (blackout) draw_set_color(c_white)
@@ -2212,7 +2212,7 @@ function control_draw() {
 				dropalpha = 1
 			} else {
 				draw_set_alpha(dropalpha)
-				marker_pos = draw_dragbar(marker_pos, enda, 93 - 84 + 100, 52 + 15, 400, 1, time_str((clamp(((mouse_x - (93 - 84 + 100)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
+				marker_pos = draw_dragbar(marker_pos, enda + totalcols, 93 - 84 + 100, 52 + 15, 400, 1, time_str((clamp(((mouse_x - (93 - 84 + 100)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
 				draw_set_alpha(1)
 				if (mouse_x != mouse_xprev || mouse_y != mouse_yprev || mouse_rectangle(0, 0, 530, 90) || window != 0) {
 					dropalpha = 1
