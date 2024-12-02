@@ -1244,15 +1244,15 @@ function control_draw() {
 	} else {
 		// horizontal rise animation
 		if (mouse_rectangle(0, rh - 25, rw, rh)) {
-			if (window = 0 && sbh_anim < 16) sbh_anim += (2 * 30 / room_speed)
+			if (window = 0 && sbh_anim < 16) sbh_anim += (2 * 30 / room_speed) * (1 / currspeed)
 		} else if (sb_drag = -1) {
-			if (sbh_anim > 0) sbh_anim -= (2 * 30 / room_speed)
+			if (sbh_anim > 0) sbh_anim -= (2 * 30 / room_speed) * (1 / currspeed)
 		}
 		// vertical rise animation
 		if (mouse_rectangle(rw - 25, 0, rw, rh)) {
-			if (window = 0 && sbv_anim < 16) sbv_anim += (2 * 30 / room_speed)
+			if (window = 0 && sbv_anim < 16) sbv_anim += (2 * 30 / room_speed) * (1 / currspeed)
 		} else if (sb_drag = -1) {
-			if (sbv_anim > 0) sbv_anim -= (2 * 30 / room_speed)
+			if (sbv_anim > 0) sbv_anim -= (2 * 30 / room_speed) * (1 / currspeed)
 		}
 		starta = draw_scrollbar(scrollbarh, 0, rh - sbh_anim, 32, ((rw - 16) / 32) - 1, enda + totalcols - 2, (exist && changepitch) || mousewheel > 0, 0)
 		startb = draw_scrollbar(scrollbarv, rw - sbv_anim, rhval, 32, ((rh - rhval - 16) / 32) - 1, endb + totalrows - 2, (exist && changepitch) || mousewheel > 0, 0)
