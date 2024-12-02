@@ -107,7 +107,7 @@ function control_draw() {
 		tonextbackup -= 1 / room_speed / 60 * (1 / currspeed)
 		if (tonextbackup <= 0 && playing == 0) {
 			if (filename_name(filename) != "") {
-				song_backupname = filename_name(filename)
+				song_backupname = filename_name(filename_change_ext(filename, ".nbs"));
 			} else {
 				song_backupname = "Unsaved song " + string(song_backupid) + ".nbs"
 			}
