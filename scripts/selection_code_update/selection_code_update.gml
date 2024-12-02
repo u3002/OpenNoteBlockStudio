@@ -3,7 +3,10 @@ function selection_code_update() {
 	// Updates the selection code
 	var a, b, ca, cb;
 	
-	if (selected = 0) ds_list_clear(selected_layers) return 0
+	if (selected = 0) {
+		ds_list_clear(selected_layers)
+		return 0
+	}
 	ca = 0
 	
 	var _selection_l = selection_l
