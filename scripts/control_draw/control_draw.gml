@@ -2212,14 +2212,22 @@ function control_draw() {
 				draw_theme_color()
 				if (blackout) draw_set_color(c_white)
 				draw_theme_font(font_info_med)
-				draw_text_dynamic(centerx - 200, centery - 110, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
-				draw_theme_font(font_main_bold)
-				draw_text_dynamic(centerx - 200, centery - 90, song_author, true)
-				draw_theme_font(font_main)
-				draw_set_color(c_gray)
-				draw_text_dynamic(centerx - 200, centery - 75, (language != 1 ? "original by " : "original by "), true)
-				draw_theme_font(font_main_bold)
-				draw_text_dynamic(centerx - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), centery - 75, song_orauthor, true)
+				var offset = 0;
+				if (song_author != "") offset += 20
+				if (song_orauthor != "") offset += 15
+				draw_text_dynamic(centerx - 200, centery - 80 - offset, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
+				if (song_author != "") {
+					draw_theme_font(font_main_bold)
+					draw_text_dynamic(centerx - 200, centery - 60 - offset, song_author, true)
+				}
+				if (song_orauthor != "") {
+					if (song_author == "") offset += 15
+					draw_theme_font(font_main)
+					draw_set_color(c_gray)
+					draw_text_dynamic(centerx - 200, centery - 45 - offset, (language != 1 ? "original by " : "original by "), true)
+					draw_theme_font(font_main_bold)
+					draw_text_dynamic(centerx - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), centery - 45 - offset, song_orauthor, true)
+				}
 				draw_theme_font(font_main)
 				draw_set_color(c_white)
 				dropalpha = 1
