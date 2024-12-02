@@ -371,6 +371,7 @@ function control_draw() {
 	}
 	note_offset = floor(((marker_pos - floor(marker_pos + 0.5 * !isplayer)) * 32) + 0.5) * ((playing && marker_follow && marker_pagebypage = 2 && (marker_pos - floor(totalcols / 2 + 0.5) < enda + 1 && marker_pos - floor(totalcols / 2 + 0.5) > 0)) || isplayer)
 	if (!isplayer) {
+	var tempo_changer_display_queue = []
 	for (a = 0; a < totalcols; a += 1) {
 		if (!blackout) {
 			if ((starta + a) mod (timesignature * 4) == 0) {
@@ -401,7 +402,8 @@ function control_draw() {
 	                                if (fade=0) c += ((selbx = starta + a && selby = startb + b && select = 0 && window = 0  && cursmarker = 0) || s) * 0.5
 	                            }
 	                            draw_block(x1 + 2 + 32 * a - note_offset, y1 + 34 + 32 * b, song_ins[starta + a, startb + b], song_key[starta + a, startb + b], song_pan[starta + a, startb + b], song_vel[starta + a, startb + b], song_pit[starta + a, startb + b], c, s * 0.8)
-	                        }
+								if (instrument_list[| ds_list_find_index(instrument_list, song_ins[starta + a, startb + b])].name = "Tempo Changer") array_push(tempo_changer_display_queue, [x1 + 2 + 32 * a - note_offset, y1 + 34 + 32 * b, string(abs(song_pit[starta + a, startb + b]))])
+							}
 	                    }
 	                } else {
 	                    break
@@ -1184,6 +1186,31 @@ function control_draw() {
 
 	marker_pos = median(0, marker_pos, enda + totalcols)
 	if (!isplayer) {
+	draw_theme_font(font_main)
+	var tempo_str;
+	var tempo_prefix = "BPM = ";
+	var last_tc_x = 0;
+	var last_tc_y = 0;
+	for (var tempo_index = array_length(tempo_changer_display_queue) - 1; tempo_index >= 0; tempo_index -= 1) {
+		xx = tempo_changer_display_queue[tempo_index][0]
+		yy = tempo_changer_display_queue[tempo_index][1]
+		tempo_str = tempo_changer_display_queue[tempo_index][2]
+		if (xx != last_tc_x) last_tc_y = 0
+		if (yy > last_tc_y) {
+			draw_sprite(spr_marker, 0 + 8 * (theme = 2 || blackout || (theme = 3 && fdark)), xx, y1 + 2)
+			draw_sprite(spr_marker, 1 + 8 * (theme = 2 || blackout || (theme = 3 && fdark)), xx, y1 + 2 + 15)
+			draw_set_color(c_white)
+			if(theme = 2) draw_set_color(3552822)
+			if (theme = 3) draw_set_color(16579836)
+			if (theme = 3 && fdark) draw_set_color(2960685)
+			draw_rectangle(xx + 10, y1 + 4, xx + 10 + string_width_dynamic(tempo_prefix + tempo_str), y1 + 16, 0)
+			draw_area(xx + 9, y1 + 3, xx + 11 + string_width_dynamic(tempo_prefix + tempo_str), y1 + 17)
+			draw_theme_color()
+			draw_text_dynamic(xx + 10, y1 + 2 + (theme != 3), tempo_prefix + tempo_str)
+			last_tc_y = yy
+		}
+		last_tc_x = xx
+	}
 	a = floor(marker_pos * 32 - starta * 32)
 	draw_sprite_ext(spr_marker, 0 + 6 * (theme = 2 || (blackout && theme != 3)) + 8 * (theme = 3), x1 + 2 + a, y1 + 2, 1, 1, 0, accent[3] * (theme = 3) - !(theme = 3), 1)
 	draw_sprite_ext(spr_marker, 1 + 6 * (theme = 2 || (blackout && theme != 3)) + 8 * (theme = 3), x1 + 2 + a, y1 + 2, 1 + (window_scale <= 0.5), (totalrows + 1) * 32 / 15, 0, accent[3] * (theme = 3) - !(theme = 3), 1)
