@@ -1404,7 +1404,7 @@ function control_draw() {
 		    // Lock button
 		    p = 0
 		    if (startb + b < endb2) p = (layerlock[startb + b] = 1)
-		    if (draw_layericon(0, x1 + 126-!realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Lock this layer", "静音本层"), 0, p)) {
+		    if (draw_layericon(0, x1 + 126-!realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Lock this layer\n(Click and drag to lock multiple layers)", "静音本层\n（________）"), 0, p)) {
 		        if (layerlock[startb + b] = 2) solostr = string_replace_all(solostr, "|" + string(startb + b) + "|", "")
 		        if (layerlock[startb + b] = 1) {layerlock[startb + b] = 0} else {layerlock[startb + b] = 1}
 				changed = 1
@@ -1412,7 +1412,7 @@ function control_draw() {
 		    // Solo button
 		    p = 0
 		    if (startb + b < endb2) p = (layerlock[startb + b] = 2)
-		    if (draw_layericon(1, x1 + 144 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Solo this layer", "独奏本层"), 0, p)) {
+		    if (draw_layericon(1, x1 + 144 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Solo this layer\n(Click and drag to solo multiple layers)", "独奏本层\n（________）"), 0, p)) {
 		        if (layerlock[startb + b] = 2) {
 		            layerlock[startb + b] = 0
 		            solostr = string_replace_all(solostr, "|" + string(startb + b) + "|", "")
@@ -1423,7 +1423,7 @@ function control_draw() {
 				changed = 1
 		    }
 			// Select all
-		    if (draw_layericon(2, x1 + 162 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Select all note blocks in this layer\n(Hold Ctrl to select multiple layers)", "选择本层所有方块\n（按住Ctrl选择多层）"), 0, 0)) {
+		    if (draw_layericon(2, x1 + 162 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Select all note blocks in this layer\n(Click and drag to select multiple; click again to deselect)", "选择本层所有方块\n（________）"), 0, 0)) {
 		        playing = 0
 				
 				// TODO: replace with array_contains() if we ever upgrade GameMaker...
@@ -1438,22 +1438,22 @@ function control_draw() {
 				}
 			}
 			// Add layer
-		    if (draw_layericon(3, x1 + 180 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Add empty layer here", "新建层"), 0, 0)) {
+		    if (draw_layericon(3, x1 + 180 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Add empty layer here\n(Click and drag to add multiple layers)", "新建层\n（________）"), 0, 0)) {
 		        playing = 0
 				add_layer(startb + b, false)
 		    }
 			// Remove layer
-			if (draw_layericon(4, x1 + 198 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Remove this layer", "删除层"), 0, 0)) {
+			if (draw_layericon(4, x1 + 198 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Remove this layer\n(Click and drag to remove multiple layers)", "删除层\n（________）"), 0, 0)) {
 		        playing = 0
 				remove_layer(startb + b, false)
 			}
 			// Shift layer up
-			if ((startb + b > 0) && draw_layericon(5, x1 + 216 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Shift layer up", "上移本层"), 0, 0)) {
+			if ((startb + b > 0) && draw_layericon(5, x1 + 216 - !realvolume-realstereo * 10, y1 + 8, condstr(language != 1, "Shift layer up\n(Click and drag to shift multiple layers)", "上移本层\n（________）"), 0, 0)) {
 			    playing = 0
 				shift_layers(startb + b, startb + b - 1, false)
 			}
 			// Shift layer down
-			if (draw_layericon(6, x1 + 234 - !realvolume-realstereo * 10 - (startb + b = 0) * 8, y1 + 8, condstr(language != 1, "Shift layer down", "下移本层"), 0, 0)) {
+			if (draw_layericon(6, x1 + 234 - !realvolume-realstereo * 10 - (startb + b = 0) * 8, y1 + 8, condstr(language != 1, "Shift layer down\n(Click and drag to shift multiple layers)", "下移本层\n（________）"), 0, 0)) {
 			    playing = 0
 				shift_layers(startb + b, startb + b + 1, false)
 			}
