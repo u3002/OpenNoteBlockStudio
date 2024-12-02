@@ -11,6 +11,9 @@ function control_draw() {
 	rw = floor(window_width * (1 / window_scale))
 	rh = floor(window_height * (1 / window_scale))
 	
+	var centerx = floor(rw / 2)
+	var centery = floor(rh / 2)
+	
 	// Update window scale
 	if (window_scale != prev_scale) {
 		camera_set_view_size(cam_window, rw, rh)
@@ -437,7 +440,7 @@ function control_draw() {
 	                                if (fade=0) c += ((selbx = starta + a && selby = startb + b && select = 0 && window = 0  && cursmarker = 0) || s) * 0.5
 	                            }
 								realkey = song_key[starta + a, startb + b] + song_pit[starta + a, startb + b] / 100
-	                            draw_block(floor(rw / 2 - (52 * 39) / 2) + floor(19.5 * (realkey + floor(realkey / 12) * 2 + (realkey mod 12 >= 8) + (realkey mod 12 >= 3))) + 4, rh - 154 - a * 32 - 32 + note_offset, song_ins[starta + a, startb + b], song_key[starta + a, startb + b], song_pan[starta + a, startb + b], song_vel[starta + a, startb + b] * (layervol[b] / 100), song_pit[starta + a, startb + b], c, s * 0.8)
+	                            draw_block(floor(centerx - (52 * 39) / 2) + floor(19.5 * (realkey + floor(realkey / 12) * 2 + (realkey mod 12 >= 8) + (realkey mod 12 >= 3))) + 4, rh - 154 - a * 32 - 32 + note_offset, song_ins[starta + a, startb + b], song_key[starta + a, startb + b], song_pan[starta + a, startb + b], song_vel[starta + a, startb + b] * (layervol[b] / 100), song_pit[starta + a, startb + b], c, s * 0.8)
 	                        }
 	                    }
 	                } else {
@@ -1758,18 +1761,18 @@ function control_draw() {
 	if (!isplayer) if (draw_icon(icons.SAVE, xx, yy, "Save song", 0, 0)) {save_song(filename)} if (!isplayer) xx += 25 + 4
 	draw_separator(xx, yy + 3) xx += 4
 	if (draw_icon(icons.PLAY + playing, xx, yy, "Play / Pause song", 0, 0)) toggle_playing(totalcols)
-	if (isplayer && !dropmode) if (draw_icon(icons.PLAY + playing, rw / 2 - 12, rh / 2 + 50, "Play / Pause song", 0, 0)) toggle_playing(totalcols)
+	if (isplayer && !dropmode) if (draw_icon(icons.PLAY + playing, centerx - 12, centery + 50, "Play / Pause song", 0, 0)) toggle_playing(totalcols)
 	xx += 25
 	if (draw_icon(icons.STOP, xx, yy, "Stop song", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.STOP, rw / 2 - 12 - 100, rh / 2 + 50, "Stop song", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)}
+	if (isplayer && !dropmode) if (draw_icon(icons.STOP, centerx - 12 - 100, centery + 50, "Stop song", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)}
 	forward = 0
 	if (draw_icon(icons.BACK, xx, yy, "Rewind song", 0, 0)) {forward = -1} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.BACK, rw / 2 - 12 - 50, rh / 2 + 50, "Rewind song", 0, 0)) {forward = -1}
+	if (isplayer && !dropmode) if (draw_icon(icons.BACK, centerx - 12 - 50, centery + 50, "Rewind song", 0, 0)) {forward = -1}
 	if (draw_icon(icons.FORWARD, xx, yy, "Fast-forward song", 0, 0)) {forward = 1} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.FORWARD, rw / 2 - 12 + 50, rh / 2 + 50, "Fast-forward song", 0, 0)) {forward = 1}
+	if (isplayer && !dropmode) if (draw_icon(icons.FORWARD, centerx - 12 + 50, centery + 50, "Fast-forward song", 0, 0)) {forward = 1}
 	if (!isplayer) if (draw_icon(icons.RECORD, xx, yy, "Record key presses", 0, playing > 0 && record)) {playing = 0.25 record=!record} if (!isplayer) xx += 25 
 	if (draw_icon(icons.LOOP_INACTIVE + loop_session, xx, yy, "Toggle looping", 0, 0)) loop_session = !loop_session if (!isplayer) xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.LOOP_INACTIVE + loop_session, rw / 2 - 12 + 100, rh / 2 + 50, "Toggle looping", 0, 0)) loop_session = !loop_session if (!isplayer)
+	if (isplayer && !dropmode) if (draw_icon(icons.LOOP_INACTIVE + loop_session, centerx - 12 + 100, centery + 50, "Toggle looping", 0, 0)) loop_session = !loop_session if (!isplayer)
 	if metronome {
 		if (metronome_played == -1 || (metronome_played - 1) mod 8 == 0) metricon = icons.METRONOME_1
 		else metricon = icons.METRONOME_2
@@ -1791,18 +1794,18 @@ function control_draw() {
 	if (!isplayer) if (draw_icon(icons.SAVE, xx, yy, "保存歌曲", 0, 0)) {save_song(filename)} if (!isplayer) xx += 25 + 4
 	draw_separator(xx, yy + 3) xx += 4
 	if (draw_icon(icons.PLAY + playing, xx, yy, "播放 / 暂停", 0, 0)) toggle_playing(totalcols)
-	if (isplayer && !dropmode) if (draw_icon(icons.PLAY + playing, rw / 2 - 12, rh / 2 + 50, "播放 / 暂停", 0, 0)) toggle_playing(totalcols)
+	if (isplayer && !dropmode) if (draw_icon(icons.PLAY + playing, centerx - 12, centery + 50, "播放 / 暂停", 0, 0)) toggle_playing(totalcols)
 	xx += 25
 	if (draw_icon(icons.STOP, xx, yy, "停止歌曲", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.STOP, rw / 2 - 12 - 100, rh / 2 + 50, "停止歌曲", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)}
+	if (isplayer && !dropmode) if (draw_icon(icons.STOP, centerx - 12 - 100, centery + 50, "停止歌曲", 0, 0)) {playing = 0 marker_pos = 0 marker_prevpos = 0 timestoloop = real(loopmax)}
 	forward = 0
 	if (draw_icon(icons.BACK, xx, yy, "快退", 0, 0)) {forward = -1} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.BACK, rw / 2 - 12 - 50, rh / 2 + 50, "快退", 0, 0)) {forward = -1}
+	if (isplayer && !dropmode) if (draw_icon(icons.BACK, centerx - 12 - 50, centery + 50, "快退", 0, 0)) {forward = -1}
 	if (draw_icon(icons.FORWARD, xx, yy, "快进", 0, 0)) {forward = 1} xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.FORWARD, rw / 2 - 12 + 50, rh / 2 + 50, "快进", 0, 0)) {forward = 1}
+	if (isplayer && !dropmode) if (draw_icon(icons.FORWARD, centerx - 12 + 50, centery + 50, "快进", 0, 0)) {forward = 1}
 	if (!isplayer) if (draw_icon(icons.RECORD, xx, yy, "录制按键", 0, playing > 0 && record)) {playing = 0.25 record=!record} if (!isplayer) xx += 25 
 	if (draw_icon(icons.LOOP_INACTIVE + loop_session, xx, yy, "开关循环", 0, 0)) loop_session = !loop_session if (!isplayer) xx += 25
-	if (isplayer && !dropmode) if (draw_icon(icons.LOOP_INACTIVE + loop_session, rw / 2 - 12 + 100, rh / 2 + 50, "开关循环", 0, 0)) loop_session = !loop_session if (!isplayer)
+	if (isplayer && !dropmode) if (draw_icon(icons.LOOP_INACTIVE + loop_session, centerx - 12 + 100, centery + 50, "开关循环", 0, 0)) loop_session = !loop_session if (!isplayer)
 	if metronome {
 		if (metronome_played == -1 || (metronome_played - 1) mod 8 == 0) metricon = icons.METRONOME_1
 		else metricon = icons.METRONOME_2
@@ -2182,8 +2185,8 @@ function control_draw() {
 		else draw_text_dynamic(93 - 84, 52, time_str(marker_pos / tempo))
 		} else {
 		draw_theme_font(font_info_big)
-		if (theme != 3) draw_text_dynamic(rw / 2 + 70, rh / 2 - 50, time_str(marker_pos / tempo))
-		else draw_text_dynamic(rw / 2 - 134 + 70, rh / 2 - 50, time_str(marker_pos / tempo))
+		if (theme != 3) draw_text_dynamic(centerx + 70, centery - 50, time_str(marker_pos / tempo))
+		else draw_text_dynamic(centerx - 134 + 70, centery - 50, time_str(marker_pos / tempo))
 		}
 
 		// Song length
@@ -2194,8 +2197,8 @@ function control_draw() {
 		} else {
 		if (blackout) draw_set_color(c_white)
 		draw_theme_font(font_info_med)
-		if (theme != 3) draw_text_dynamic(rw / 2 + 70, rh / 2 - 20, "/ " + time_str(enda / tempo))
-		else draw_text_dynamic(rw / 2 - 91 + 70, rh / 2 - 20, "/ " + time_str(enda / tempo))
+		if (theme != 3) draw_text_dynamic(centerx + 70, centery - 20, "/ " + time_str(enda / tempo))
+		else draw_text_dynamic(centerx - 91 + 70, centery - 20, "/ " + time_str(enda / tempo))
 		}
 		draw_theme_font(font_main)
 		draw_set_halign(fa_left)
@@ -2203,19 +2206,20 @@ function control_draw() {
 		
 		if (isplayer) {
 			if (!dropmode) {
-				marker_pos = draw_dragbar(marker_pos, enda + totalcols, rw / 2 - 200, rh / 2 + 25, 400, 1, time_str((clamp(((mouse_x - (rw / 2 - 200)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
+
+				marker_pos = draw_dragbar(marker_pos, enda + totalcols, centerx - 200, centery + 25, 400, 1, time_str((clamp(((mouse_x - (centerx - 200)) / 400) * enda, 0, enda)) / tempo), condstr(language != 1, "Song Position", "当前位置"), 0)
 				draw_set_halign(fa_left)
 				draw_theme_color()
 				if (blackout) draw_set_color(c_white)
 				draw_theme_font(font_info_med)
-				draw_text_dynamic(rw / 2 - 200, rh / 2 - 110, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
+				draw_text_dynamic(centerx - 200, centery - 110, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
 				draw_theme_font(font_main_bold)
-				draw_text_dynamic(rw / 2 - 200, rh / 2 - 90, song_author, true)
+				draw_text_dynamic(centerx - 200, centery - 90, song_author, true)
 				draw_theme_font(font_main)
 				draw_set_color(c_gray)
-				draw_text_dynamic(rw / 2 - 200, rh / 2 - 75, (language != 1 ? "original by " : "original by "), true)
+				draw_text_dynamic(centerx - 200, centery - 75, (language != 1 ? "original by " : "original by "), true)
 				draw_theme_font(font_main_bold)
-				draw_text_dynamic(rw / 2 - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), rh / 2 - 75, song_orauthor, true)
+				draw_text_dynamic(centerx - 200 + string_width_dynamic(language != 1 ? "original by " : "original by "), centery - 75, song_orauthor, true)
 				draw_theme_font(font_main)
 				draw_set_color(c_white)
 				dropalpha = 1
