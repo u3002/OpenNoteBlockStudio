@@ -1,5 +1,11 @@
 function draw_window_properties() {
 	// draw_window_properties()
+	
+	if (window != prevwindow) {
+		// Initialize loop end to current last tick of the song
+		loopend = enda + 1
+	}
+	
 	var x1, y1, a; 
 	windowanim = 1
 	if (theme = 3) draw_set_alpha(windowalpha)
@@ -82,31 +88,53 @@ function draw_window_properties() {
 		draw_text_dynamic(x1 + 340, y1 + 305, loopstart)
 	}
 	if (a != loopstart) changed = 1
+	
+	// Loop end tick
+	if (!loop) draw_set_color(c_gray)
+	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 325, "Loop end tick:")
+	else draw_text_dynamic(x1 + 252, y1 + 325, "Loop end tick:")	
+	a = loopend
+	if (loop) {
+		loopend = median(enda + 1, draw_dragvalue(20, x1 + 340, y1 + 325, loopend, 0.5), obj_controller.enda + 16 + 1)
+	} else {
+		draw_text_dynamic(x1 + 340, y1 + 325, loopend)
+	}
+	if (loopend != enda + 1) {
+		draw_set_color(c_orange)
+		draw_theme_font(font_small_bold)
+		draw_text_dynamic(x1 + 25, y1 + 390, "[!]")
+		draw_theme_font(font_small)
+		draw_text_dynamic(x1 + 40 + (theme != 3) * 2, y1 + 390 + (theme == 3), "A silent note will be added to extend the length of the song.")
+		draw_theme_font(font_main)
+		draw_theme_color()
+	}
+	if (a != loopend) changed = 1
 
-	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 325, "Times to loop:")
-	else draw_text_dynamic(x1 + 252, y1 + 325, "循环次数:")
+	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 345, "Times to loop:")
+	else draw_text_dynamic(x1 + 252, y1 + 345, "循环次数:")
 	a = loopmax
 	if (loop) {
-		loopmax = median(0, draw_dragvalue(13, x1 + 340, y1 + 325, loopmax, 0.5), 10)
+		loopmax = median(0, draw_dragvalue(13, x1 + 340, y1 + 345, loopmax, 0.5), 10)
 	} else {
-		draw_text_dynamic(x1 + 340, y1 + 325, loopmax)
+		draw_text_dynamic(x1 + 340, y1 + 345, loopmax)
 	}
-	if (language != 1) {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 325, "(infinite)")}
-	else {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 325, "（无限）")}
+	if (language != 1) {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 345, "(infinite)")}
+	else {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 345, "（无限）")}
 	if (a != loopmax) changed = 1
 	timestoloop = loopmax
-	
-	if (loop) {
-		draw_set_color(c_orange)
-		draw_theme_font(font_small)
-		draw_text_dynamic(x1 + 37, y1 + 315, "Warning: the 'Loop to bar end' setting was\nremoved to make playback consistent!\nTo make sure your song loops at the right\npoint, add a silent note at the end.")
-	}
-	
-	draw_theme_font(font_main)
+
 	draw_theme_color()
 
-	if (draw_button2(x1 + 430 - 72, y1 + 386, 72, condstr(language != 1, "OK", "确定")) && (windowopen = 1 || theme != 3)) {windowclose = 1}
-	if (display_mouse_get_x() - window_get_x() >= 0 && display_mouse_get_y() - window_get_y() >= 0 && display_mouse_get_x() - window_get_x() < 0 + window_width && display_mouse_get_y() - window_get_y() < 0 + window_height) {
+	if (draw_button2(x1 + 430 - 72, y1 + 386, 72, condstr(language != 1, "OK", "确定")) && (windowopen = 1 || theme != 3)) {
+		
+		if (loopend != enda + 1) {
+			show_debug_message("Loop end changed; adding extra note");
+			add_block(loopend - 1, 0, instrument_list[| 0], 45, 0, 100, 0)
+		}
+		
+		windowclose = 1
+	}
+	if (display_mouse_get_x() - window_get_x() >= 0 && display_mouse_get_y() - window_get_y() >= 0 && display_mouse_get_x() - window_get_x() < 0 + window_width && display_mouse_get_y() - window_get_y() < 0 + window_height) {		
 		window_set_cursor(curs)
 		if (array_length(text_mouseover) = 0) window_set_cursor(cr_default)
 	}
