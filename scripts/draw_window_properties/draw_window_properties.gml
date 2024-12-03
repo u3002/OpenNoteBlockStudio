@@ -6,17 +6,17 @@ function draw_window_properties() {
 	curs = cr_default
 	text_exists[0] = 0
 	x1 = floor(rw / 2 - 220)
-	y1 = floor(rh / 2 - 200) + windowoffset
-	draw_window(x1, y1, x1 + 440, y1 + 400)
+	y1 = floor(rh / 2 - 240) + windowoffset
+	draw_window(x1, y1, x1 + 440, y1 + 420)
 	draw_theme_font(font_main_bold)
 	if (language != 1) draw_text_dynamic(x1 + 8, y1 + 8, "Song Properties")
 	else draw_text_dynamic(x1 + 8, y1 + 8, "歌曲属性")
 	draw_theme_font(font_main)
 	if (theme = 0) {
 	    draw_set_color(c_white)
-	    draw_rectangle(x1 + 6, y1 + 26, x1 + 434, y1 + 359, 0)
+	    draw_rectangle(x1 + 6, y1 + 26, x1 + 434, y1 + 379, 0)
 	    draw_set_color(make_color_rgb(137, 140, 149))
-	    draw_rectangle(x1 + 6, y1 + 26, x1 + 434, y1 + 359, 1)
+	    draw_rectangle(x1 + 6, y1 + 26, x1 + 434, y1 + 379, 1)
 	}
 	if (language != 1) draw_areaheader(x1 + 22, y1 + 48, 396, 200, "Information")
 	else draw_areaheader(x1 + 22, y1 + 48, 396, 200, "信息")
@@ -56,7 +56,7 @@ function draw_window_properties() {
 	if (a != song_desc) changed = 1
 
 	draw_theme_color()
-	if (language != 1) draw_areaheader(x1 + 22, y1 + 268, 396, 85, "Playback")
+	if (language != 1) draw_areaheader(x1 + 22, y1 + 268, 396, 105, "Playback")
 	else draw_areaheader(x1 + 22, y1 + 268, 396, 85, "播放")
 
 	if (language != 1) draw_text_dynamic(x1 + 37, y1 + 285, "Time signature:")
@@ -69,35 +69,43 @@ function draw_window_properties() {
 	else popup_set_window(x1 + 37, y1 + 283, 110, 18, "乐曲的拍号。")
 
 	a = loop
-	if (language != 1) {if (draw_checkbox(x1 + 232, y1 + 285, loop, "Enable looping", "Whether to loop this song back to"+br+"the start at the end of playback.", false, true)) loop=!loop}
-	else {if (draw_checkbox(x1 + 232, y1 + 285, loop, "启用循环", "是否在播放结尾循环至开始处。", false, true)) loop=!loop}
+	if (language != 1) {if (draw_checkbox(x1 + 252, y1 + 285, loop, "Enable looping", "Whether to loop this song back to"+br+"the start at the end of playback.", false, true)) loop=!loop}
+	else {if (draw_checkbox(x1 + 252, y1 + 285, loop, "启用循环", "是否在播放结尾循环至开始处。", false, true)) loop=!loop}
 	if (a != loop) changed = 1
 	if (!loop) draw_set_color(c_gray)
-	if (language != 1) draw_text_dynamic(x1 + 232, y1 + 305, "Loop start tick:")
-	else draw_text_dynamic(x1 + 232, y1 + 305, "循环开始刻:")
+	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 305, "Loop start tick:")
+	else draw_text_dynamic(x1 + 252, y1 + 305, "循环开始刻:")
 	a = loopstart
 	if (loop) {
-		loopstart = median(0, draw_dragvalue(7, x1 + 320, y1 + 305, loopstart, 0.5), obj_controller.enda)
+		loopstart = median(0, draw_dragvalue(7, x1 + 340, y1 + 305, loopstart, 0.5), obj_controller.enda)
 	} else {
-		draw_text_dynamic(x1 + 320, y1 + 305, loopstart)
+		draw_text_dynamic(x1 + 340, y1 + 305, loopstart)
 	}
 	if (a != loopstart) changed = 1
 
-	if (language != 1) draw_text_dynamic(x1 + 232, y1 + 325, "Times to loop:")
-	else draw_text_dynamic(x1 + 232, y1 + 325, "循环次数:")
+	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 325, "Times to loop:")
+	else draw_text_dynamic(x1 + 252, y1 + 325, "循环次数:")
 	a = loopmax
 	if (loop) {
-		loopmax = median(0, draw_dragvalue(13, x1 + 320, y1 + 325, loopmax, 0.5), 10)
+		loopmax = median(0, draw_dragvalue(13, x1 + 340, y1 + 325, loopmax, 0.5), 10)
 	} else {
-		draw_text_dynamic(x1 + 320, y1 + 325, loopmax)
+		draw_text_dynamic(x1 + 340, y1 + 325, loopmax)
 	}
-	if (language != 1) {if (loopmax = 0) draw_text_dynamic(x1 + 340, y1 + 325, "(infinite)")}
-	else {if (loopmax = 0) draw_text_dynamic(x1 + 340, y1 + 325, "（无限）")}
+	if (language != 1) {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 325, "(infinite)")}
+	else {if (loopmax = 0) draw_text_dynamic(x1 + 360, y1 + 325, "（无限）")}
 	if (a != loopmax) changed = 1
 	timestoloop = loopmax
+	
+	if (loop) {
+		draw_set_color(c_orange)
+		draw_theme_font(font_small)
+		draw_text_dynamic(x1 + 37, y1 + 315, "Warning: the 'Loop to bar end' setting was\nremoved to make playback consistent!\nTo make sure your song loops at the right\npoint, add a silent note at the end.")
+	}
+	
+	draw_theme_font(font_main)
 	draw_theme_color()
 
-	if (draw_button2(x1 + 430 - 72, y1 + 366, 72, condstr(language != 1, "OK", "确定")) && (windowopen = 1 || theme != 3)) {windowclose = 1}
+	if (draw_button2(x1 + 430 - 72, y1 + 386, 72, condstr(language != 1, "OK", "确定")) && (windowopen = 1 || theme != 3)) {windowclose = 1}
 	if (display_mouse_get_x() - window_get_x() >= 0 && display_mouse_get_y() - window_get_y() >= 0 && display_mouse_get_x() - window_get_x() < 0 + window_width && display_mouse_get_y() - window_get_y() < 0 + window_height) {
 		window_set_cursor(curs)
 		if (array_length(text_mouseover) = 0) window_set_cursor(cr_default)
