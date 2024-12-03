@@ -129,6 +129,6 @@ function draw_window_sound_import() {
 	x1 = startx + width - 72 - 8 - 12;
 	if (draw_button2(x1, y1, 72, ((language == 0) ? "OK" : "确定"), false, false)) {
 		sound_import_status = 0;
-		window = 0;
+		windowclose = 1;
 	}
 }
