@@ -92,7 +92,7 @@ function draw_window_properties() {
 	// Loop end tick
 	if (!loop) draw_set_color(c_gray)
 	if (language != 1) draw_text_dynamic(x1 + 252, y1 + 325, "Loop end tick:")
-	else draw_text_dynamic(x1 + 252, y1 + 325, "Loop end tick:")	
+	else draw_text_dynamic(x1 + 252, y1 + 325, "循环结束刻:")	
 	a = loopend
 	if (loop) {
 		loopend = median(enda + 1, draw_dragvalue(20, x1 + 340, y1 + 325, loopend, 0.5), obj_controller.enda + 16 + 1)
@@ -104,7 +104,8 @@ function draw_window_properties() {
 		draw_theme_font(font_small_bold)
 		draw_text_dynamic(x1 + 25, y1 + 390, "[!]")
 		draw_theme_font(font_small)
-		draw_text_dynamic(x1 + 40 + (theme != 3) * 2, y1 + 390 + (theme == 3), "A silent note will be added to extend the length of the song.")
+		if (language != 1) draw_text_dynamic(x1 + 40 + (theme != 3) * 2, y1 + 390 + (theme == 3), "A silent note will be added to extend the length of the song.")
+		else draw_text_dynamic(x1 + 40 + (theme != 3) * 2, y1 + 390 + (theme == 3), "歌曲结尾将会自动添加一个 0 音量音符用于延长歌曲结尾。")
 		draw_theme_font(font_main)
 		draw_theme_color()
 	}

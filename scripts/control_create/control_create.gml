@@ -581,7 +581,7 @@ function control_create() {
 		acrylic = 0
 		can_draw_mica = 0
 		if (language != 1) show_message("Note Block Studio encountered an error creating the background sprite. Transparency effects will be disabled.\nThis usually happens when your desktop wallpaper is either too tall or too long.")
-		else show_message("Note Block Studio 在创建模糊背景贴图时遇到错误，透明效果将被关闭。\n这种情况一般是由于您的桌面壁纸图片过高或过长。")
+		else show_message("Note Block Studio 在创建背景贴图时遇到错误，透明效果将被关闭。\n这种情况一般是由于您的桌面壁纸图片过高或过长。")
 	}
 	if (show_welcome) window = w_greeting
 	draw_accent_init()
