@@ -479,7 +479,7 @@ function lang_en_us(){
 	text_window_about_local_release = "Version Local Release"
 	text_window_about_version = "Version "
 	text_window_about_released = " - Released "
-	text_window_about_description = "\n\nThis program is a continuation of\n Minecraft Note Block Studio, \ncreated by David Norgren. \n\nThis product is not affiliated with\nMojang Studios, Microsoft Studios\nor the game Minecraft."
+	text_window_about_description = "\n\nThis program is a continuation of\n Minecraft Note Block Studio, \ncreated by David Andrei. \n\nThis product is not affiliated with\nMojang Studios, Microsoft Studios\nor the game Minecraft."
 	text_window_about_website = "Website"
 	text_window_about_github = "GitHub"
 	text_window_about_discord = "Discord"
