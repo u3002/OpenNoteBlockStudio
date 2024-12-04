@@ -39,7 +39,7 @@ function control_draw() {
 	showmenu = 0
 	cursmarker = 0
 	compx = 160
-	window_set_caption(condstr((protocol_data != pointer_null), song_download_display_name, condstr((filename = "" || filename = "-player") && (midiname = "" || !isplayer), condstr(language != 1, "Unsaved song", "新文件")) + condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "" && isplayer, midiname) + condstr(changed && filename != "" && filename != "-player", "*")) + " - Minecraft Note Block Studio" + condstr(isplayer, " - Player Mode"))
+	window_set_caption(condstr((protocol_data != pointer_null), song_download_display_name, condstr((filename = "" || filename = "-player") && (midiname = "" || !isplayer), condstr(language != 1, "Unsaved song", "新文件")) + condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "" && isplayer, midiname) + condstr(changed && filename != "" && filename != "-player", "*")) + " - Note Block Studio" + condstr(isplayer, " - Player Mode"))
 	// Performance indicator: "(" + string_format(currspeed * 100, 1, 0) + "%) "
 	draw_set_alpha(1)
 	draw_theme_color()
@@ -1904,7 +1904,7 @@ function control_draw() {
 	if (draw_icon(icons.HELP, xx, yy, "Watch tutorial videos")) {
 	    open_url("http://www.youtube.com/playlist?list=PL7EA4F0D271DA6E86")
 	} xx += 25 if (xx > rw - 312) break
-	if (draw_icon(icons.INTERNET, xx, yy, "Visit the Open Note Block Studio website")) {open_url(link_website)} xx += 25 if (xx > rw - 312) break
+	if (draw_icon(icons.INTERNET, xx, yy, "Visit the Note Block Studio website")) {open_url(link_website)} xx += 25 if (xx > rw - 312) break
 	break
 	}
 	if (isplayer) if (draw_icon(icons.EDITMODE_KEY, xx, yy, condstr(dropmode, "Exit", "Enter") + " the drop mode", 0, dropmode)) {dropmode = !dropmode if (dropmode) window_maximize() else window_setnormal()} if (isplayer) xx += 25
@@ -1925,7 +1925,7 @@ function control_draw() {
 	if (draw_icon(icons.HELP, xx, yy, "教程视频")) {
 	    open_url("https://www.bilibili.com/video/BV1Mx411a76p")
 	} xx += 25 if (xx > rw - 312) break
-	if (draw_icon(icons.INTERNET, xx, yy, "访问 Open Note Block Studio 官方网站")) {open_url(link_website)} xx += 25 if (xx > rw - 312) break
+	if (draw_icon(icons.INTERNET, xx, yy, "访问 Note Block Studio 官方网站")) {open_url(link_website)} xx += 25 if (xx > rw - 312) break
 	break
 	}
 	if (isplayer) if (draw_icon(icons.EDITMODE_KEY, xx, yy, condstr(dropmode, "关闭", "开启") + "下落模式", 0, dropmode)) {dropmode = !dropmode if (dropmode) window_maximize() else window_setnormal()} if (isplayer) xx += 25

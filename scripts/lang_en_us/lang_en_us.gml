@@ -283,7 +283,7 @@ function lang_en_us(){
 	text_draw_icon_instruments = "Edit instruments"
 	text_draw_icon_midi_manager = "MIDI device manager"
 	text_draw_icon_tutorial = "Watch tutorial videos"
-	text_draw_icon_website = "Visit the Open Note Block Studio website"
+	text_draw_icon_website = "Visit the Note Block Studio website"
 	text_draw_master_vol = "Master Volume: "
 	text_draw_minecraft_compatible = "Fully compatible"
 	text_draw_minecraft_compatible_popup = "This song is compatible with both schematics and data packs.\n(Click for more info.)"

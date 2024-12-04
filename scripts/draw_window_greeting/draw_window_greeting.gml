@@ -38,7 +38,7 @@ function draw_window_greeting() {
 	draw_window(x1, y1, x1 + 700, y1 + 430)
 	draw_sprite_ext(spr_logo, window_icon, x1 + 64, y1 + 50, 1, 1, 0, c_white, draw_get_alpha())
 	draw_theme_font(font_info_med_bold)
-	draw_text_center(x1 + 132, y1 + 213, "Open Note Block Studio")
+	draw_text_center(x1 + 132, y1 + 213, "Note Block Studio")
 	draw_theme_font(font_main_bold)
 	var dev_label_offset = (is_prerelease) ? 15 : 0
 	if (RUN_FROM_IDE != 1) {

@@ -26,7 +26,7 @@ function macros() {
 #macro pattern_directory	working_directory + "Patterns\\"
 #macro log_file				file_directory + "log.txt"
 #macro temp_file			file_directory + "tmp.file"
-#macro update_file			file_directory + "Minecraft Note Block Studio Installer.exe"
+#macro update_file			file_directory + "Note Block Studio Installer.exe"
 #macro settings_file		file_directory + "settings.ini"
 #macro settings_dev_file	file_directory + "settings_dev.ini"
 #macro backup_directory		file_directory + "Backups\\"

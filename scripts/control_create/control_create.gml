@@ -580,8 +580,8 @@ function control_create() {
 	} else {
 		acrylic = 0
 		can_draw_mica = 0
-		if (language != 1) show_message("Minecraft Note Block Studio encountered an error creating blurred background sprite, the transparency effect will be disabled.\n This usually happens when your desktop wallpaper is either too tall or too long.")
-		else show_message("Minecraft Note Block Studio 在创建模糊背景贴图时遇到错误，透明效果将被关闭。\n这种情况一般是由于您的桌面壁纸图片过高或过长。")
+		if (language != 1) show_message("Note Block Studio encountered an error creating blurred background sprite. The transparency effect will be disabled.\nThis usually happens when your desktop wallpaper is either too tall or too long.")
+		else show_message("Note Block Studio 在创建模糊背景贴图时遇到错误，透明效果将被关闭。\n这种情况一般是由于您的桌面壁纸图片过高或过长。")
 	}
 	if (show_welcome) window = w_greeting
 	draw_accent_init()
@@ -643,8 +643,8 @@ function control_create() {
 	// Implemented in a better way that takes multiple instances into account.
 	if (file_find_first(backup_directory + "*.nbs", 0) != "" && !port_taken && !isplayer) {
 		var isrecover = 0
-		if (language != 1) isrecover = question("Minecraft Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?\n\n(If you click 'No', you'll be prompted to recover it again the next time you open the program.)", "Auto-recovery")
-		else isrecover = question("Minecraft Note Block Studio在您工作时意外关闭了。要恢复您的文档吗？\n\n（如果点击“No”，下次打开软件时将会再次提示恢复。）", "自动恢复")
+		if (language != 1) isrecover = question("Note Block Studio quit unexpectedly while you were working on a song. Do you want to recover your work?\n\n(If you click 'No', you'll be prompted to recover it again the next time you open the program.)", "Auto-recovery")
+		else isrecover = question("Note Block Studio在您工作时意外关闭了。要恢复您的文档吗？\n\n（如果点击“No”，下次打开软件时将会再次提示恢复。）", "自动恢复")
 		if (isrecover) {
 			// Create restore folder
 			if (!directory_exists_lib(restore_directory)) {

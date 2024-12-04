@@ -9,7 +9,7 @@ function log_init() {
 	    return false
 	}
 
-	file_text_write_string(f, "__ Minecraft Note Block Studio log __");
+	file_text_write_string(f, "__ Note Block Studio log __");
 	file_text_writeln(f)
 	file_text_close(f)
 

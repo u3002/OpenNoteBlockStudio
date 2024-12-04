@@ -12,7 +12,7 @@ function draw_window_about() {
 	draw_sprite_ext(spr_logo, window_icon, x1 + 80, y1 + 50, 1, 1, 0, c_white, draw_get_alpha())
 	draw_set_halign(fa_center)
 	draw_theme_font(font_info_med_bold)
-	draw_text_dynamic(x1 + 150, y1 + 200, "Open Note Block Studio")
+	draw_text_dynamic(x1 + 150, y1 + 200, "Note Block Studio")
 	draw_theme_font(font_main)
 	if (language != 1) {
 	if (RUN_FROM_IDE != 1){

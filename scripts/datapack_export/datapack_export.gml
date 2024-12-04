@@ -57,7 +57,7 @@ function datapack_export() {
 		functiondir = dat_makefolders(path, namespace, function_registry)
 	
 		//pack.mcmeta
-		inputString = "{\n\t\"pack\": {\n\t\t\"pack_format\": " + string(pack_format) + ",\n\t\t\"description\": \"" + o.dat_name + "\\nMade with Minecraft Note Block Studio\"\n\t}\n}"
+		inputString = "{\n\t\"pack\": {\n\t\t\"pack_format\": " + string(pack_format) + ",\n\t\t\"description\": \"" + o.dat_name + "\\nMade with Note Block Studio\"\n\t}\n}"
 		dat_writefile(inputString, tempdir + "pack.mcmeta")
 	
 		//Minecraft folder:
