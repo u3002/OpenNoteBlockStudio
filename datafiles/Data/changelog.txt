@@ -1,3 +1,29 @@
+Changes in v3.11.0 Release Candidate 1 (2024.12.04):
+
+Additions
+
+* Added a 'Loop end tick' option in the song properties.
+   * Setting it to a tick greater than the song length will add a silent note at that
+   tick to move the loop point further.
+
+* The MIDI import instrument mappings have been tweaked to be more accurate
+   to General MIDI (GM) instruments.
+
+Bugfixes and improvements:
+
+* Fixed layer buttons triggering inconsistently when dragging from bottom to top.
+* Fixed window animations not working after opening the 'Import sounds' window.
+* Fixed uninstall function of exported data packs not loading correctly.
+* Updated the NBS icon to a flat version. The previous icon can still be used with
+   the 'Old icon' setting.
+* Changed all instances of 'Minecraft Note Block Studio' and 'Open Note Block
+   Studio' to Note Block Studio, as part of an ongoing rebrand.
+* Replaced the icon for the 'Browse songs' button in the greeting window with
+   the Note Block World website icon.
+* Improved wording across various places.
+
+
+
 Changes in v3.11.0 Beta 5 (2024.12.02):
 
 Additions:
