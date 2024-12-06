@@ -2215,7 +2215,19 @@ function control_draw() {
 				var offset = 0;
 				if (song_author != "") offset += 20
 				if (song_orauthor != "") offset += 15
-				draw_text_dynamic(centerx - 200, centery - 80 - offset, song_name == "" ? song_name : condstr((protocol_data != pointer_null), song_download_display_name, condstr(filename != "-player", filename_change_ext(filename_name(filename), "")) + condstr((filename = "" || filename = "-player") && midiname != "", filename_change_ext(midiname, "")), true))
+				
+				var title_str = "";
+				if (song_name != "") {
+					title_str = song_name
+				} else if (protocol_data != pointer_null) {
+					title_str = song_download_display_name
+				} else if (filename != "") {
+					title_str = filename_change_ext(filename_name(filename), "")
+				} else if (midiname != "") {
+					title_str = filename_change_ext(midiname, "")
+				}
+				
+				draw_text_dynamic(centerx - 200, centery - 80 - offset, title_str, true)
 				if (song_author != "") {
 					draw_theme_font(font_main_bold)
 					draw_text_dynamic(centerx - 200, centery - 60 - offset, song_author, true)
