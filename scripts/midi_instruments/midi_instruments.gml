@@ -437,10 +437,10 @@ function midi_instruments() {
 	midi_drum[a, 0] = "Claves"
 	midi_drum[a, 1] = 4 midi_drum[a, 2] = 18 a += 1
 	midi_drum[a, 0] = "High Wood Block"
-	midi_drum[a, 1] = 9 midi_drum[a, 2] = 14 a += 1
+	midi_drum[a, 1] = 4 midi_drum[a, 2] = 10 a += 1
 	// 77
 	midi_drum[a, 0] = "Low Wood Block"
-	midi_drum[a, 1] = 9 midi_drum[a, 2] = 9 a += 1
+	midi_drum[a, 1] = 4 midi_drum[a, 2] = 5 a += 1
 	midi_drum[a, 0] = "Mute Cuica"
 	midi_drum[a, 1] = 12 midi_drum[a, 2] = 25 a += 1
 	midi_drum[a, 0] = "Open Cuica"
