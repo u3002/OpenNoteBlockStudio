@@ -29,6 +29,7 @@ function reset() {
 	changed = 0
 	song_midi = midifile
 	midifile = ""
+	song_download_display_name = ""
 
 	// Playback
 	playing = 0

@@ -39,7 +39,7 @@ function control_draw() {
 	showmenu = 0
 	cursmarker = 0
 	compx = 160
-	window_set_caption(condstr((protocol_data != pointer_null), song_download_display_name, condstr((filename = "" || filename = "-player") && (midiname = "" || !isplayer), condstr(language != 1, "Unsaved song", "新文件")) + condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "" && isplayer, midiname) + condstr(changed && filename != "" && filename != "-player", "*")) + " - Note Block Studio" + condstr(isplayer, " - Player Mode"))
+	window_set_caption(condstr((song_download_display_name != ""), song_download_display_name, condstr((filename = "" || filename = "-player") && (midiname = "" || !isplayer), condstr(language != 1, "Unsaved song", "新文件")) + condstr(filename != "-player", filename_name(filename)) + condstr((filename = "" || filename = "-player") && midiname != "" && isplayer, midiname) + condstr(changed && filename != "" && filename != "-player", "*")) + " - Note Block Studio" + condstr(isplayer, " - Player Mode"))
 	// Performance indicator: "(" + string_format(currspeed * 100, 1, 0) + "%) "
 	draw_set_alpha(1)
 	draw_theme_color()
@@ -2219,7 +2219,7 @@ function control_draw() {
 				var title_str = "";
 				if (song_name != "") {
 					title_str = song_name
-				} else if (protocol_data != pointer_null) {
+				} else if (song_download_display_name != "") {
 					title_str = song_download_display_name
 				} else if (filename != "") {
 					title_str = filename_change_ext(filename_name(filename), "")
