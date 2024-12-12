@@ -247,7 +247,7 @@ function midi_instruments() {
 	midi_ins[a, 1] = 6 midi_ins[a, 2] = -1 a += 1
 	midi_ins[a, 0] = "Pad 6 (metallic)" midi_ins[a, 3] = "Metal Pad"
 	midi_ins[a, 1] = 6 midi_ins[a, 2] = -1 a += 1
-	midi_ins[a, 0] = "Pad 7 (halo)" midi_ins[a, 3] = "Halo Pad
+	midi_ins[a, 0] = "Pad 7 (halo)" midi_ins[a, 3] = "Halo Pad"
 	midi_ins[a, 1] = 6 midi_ins[a, 2] = -1 a += 1
 	midi_ins[a, 0] = "Pad 8 (sweep)" midi_ins[a, 3] = "Sweep Pad"
 	midi_ins[a, 1] = 8 midi_ins[a, 2] = -2 a += 1
