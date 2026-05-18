@@ -414,9 +414,39 @@ function draw_window_preferences() {
 		if (language != 1) draw_areaheader(x1 + 258, y1 + 150 + (theme = 3) * 22, 220, 64, "Window")
 		else draw_areaheader(x1 + 258, y1 + 150 + (theme = 3) * 22, 220, 64, "窗口")
 		if (theme = 3) draw_theme_font(font_main)
-		if (language != 1) draw_text_dynamic(x1 + 276, y1 + 166 + (theme = 3) * 22, "Scale:             %")
-		else draw_text_dynamic(x1 + 276, y1 + 166 + (theme = 3) * 22, "缩放:              %")
-		window_scale = median(50, draw_dragvalue(19, x1 + 322, y1 + 166 + (theme = 3) * 22, window_scale * 100, (1/power(window_scale, 2)) ), 400) / 100
+		if (language != 1) draw_text_dynamic(x1 + 276, y1 + 166 + (theme = 3) * 22, "Scale:               %")
+		else draw_text_dynamic(x1 + 276, y1 + 166 + (theme = 3) * 22, "缩放:                %")
+		window_scale = median(50, draw_dragvalue(19, x1 + 332, y1 + 166 + (theme = 3) * 22, window_scale * 100, (1/power(window_scale, 2)) ), 400) / 100
+		if (draw_button2(x1 + 308, y1 + 161 + (theme = 3) * 22, 20, "-")) {
+			if (window_scale <= 4 && window_scale > 3.5) {window_scale = 3.5}
+			else if (window_scale > 3) {window_scale = 3}
+			else if (window_scale > 2.5) {window_scale = 2.5}
+			else if (window_scale > 2) {window_scale = 2}
+			else if (window_scale > 1.75) {window_scale = 1.75}
+			else if (window_scale > 1.5) {window_scale = 1.5}
+			else if (window_scale > 1.25) {window_scale = 1.25}
+			else if (window_scale > 1) {window_scale = 1}
+			else if (window_scale > 0.9) {window_scale = 0.9}
+			else if (window_scale > 0.8) {window_scale = 0.8}
+			else if (window_scale > 0.75) {window_scale = 0.75}
+			else if (window_scale > 0.67) {window_scale = 0.67}
+			else if (window_scale > 0.5) {window_scale = 0.5}
+		}
+		if (draw_button2(x1 + 366, y1 + 161 + (theme = 3) * 22, 20, "+")) {
+			if (window_scale >= 0.5 && window_scale < 0.67) {window_scale = 0.67}
+			else if (window_scale < 0.75) {window_scale = 0.75}
+			else if (window_scale < 0.8) {window_scale = 0.8}
+			else if (window_scale < 0.9) {window_scale = 0.9}
+			else if (window_scale < 1) {window_scale = 1}
+			else if (window_scale < 1.25) {window_scale = 1.25}
+			else if (window_scale < 1.5) {window_scale = 1.5}
+			else if (window_scale < 1.75) {window_scale = 1.75}
+			else if (window_scale < 2) {window_scale = 2}
+			else if (window_scale < 2.5) {window_scale = 2.5}
+			else if (window_scale < 3) {window_scale = 3}
+			else if (window_scale < 3.5) {window_scale = 3.5}
+			else if (window_scale < 4) {window_scale = 4}
+		}
 		if (language != 1) {
 		if (draw_button2(x1 + 394, y1 + 161 + (theme = 3) * 22, 72, "Reset", (window_scale == get_default_window_scale()))) {
 			window_scale = get_default_window_scale()
