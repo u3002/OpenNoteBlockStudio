@@ -887,32 +887,36 @@ function control_draw() {
 	
 	if (!isplayer) {
 		
-	if (keyboard_check_pressed(vk_numpad1)) {
-		current_song.reference_option = 0; 
-		set_msg("Reference mute"); 
-		if (audio_is_playing(current_song.reference_sound)) audio_stop_sound(current_song.reference_sound)
-	}
-	if (keyboard_check_pressed(vk_numpad2)) {
-		current_song.reference_option = 1; 
-		set_msg("Reference solo"); 
-		if (playing) {
-			if (current_song.reference_option > 0 && !audio_is_playing(current_song.reference_sound)) {
-				current_song.reference_sound = audio_play_sound(current_song.reference_audio, 1, 0)
-				audio_sound_gain(current_song.reference_audio, (current_song.reference_volume * mastervol) / 100, 0)
-				audio_sound_set_track_position(current_song.reference_sound, get_seconds_from_tick(current_song.marker_pos) + current_song.reference_offset / 1000)
+	if (window = 0 && text_focus = -1) {
+		
+		if (keyboard_check_pressed(vk_numpad1)) {
+			current_song.reference_option = 0; 
+			set_msg("Reference mute"); 
+			if (audio_is_playing(current_song.reference_sound)) audio_stop_sound(current_song.reference_sound)
+		}
+		if (keyboard_check_pressed(vk_numpad2)) {
+			current_song.reference_option = 1; 
+			set_msg("Reference solo"); 
+			if (playing) {
+				if (current_song.reference_option > 0 && !audio_is_playing(current_song.reference_sound)) {
+					current_song.reference_sound = audio_play_sound(current_song.reference_audio, 1, 0)
+					audio_sound_gain(current_song.reference_audio, (current_song.reference_volume * mastervol) / 100, 0)
+					audio_sound_set_track_position(current_song.reference_sound, get_seconds_from_tick(current_song.marker_pos) + current_song.reference_offset / 1000)
+				}
 			}
 		}
-	}
-	if (keyboard_check_pressed(vk_numpad3)) {
-		current_song.reference_option = 2; 
-		set_msg("Reference mix")
-		if (playing) {
-			if (current_song.reference_option > 0 && !audio_is_playing(current_song.reference_sound)) {
-				current_song.reference_sound = audio_play_sound(current_song.reference_audio, 1, 0)
-				audio_sound_gain(current_song.reference_audio, (current_song.reference_volume * mastervol) / 100, 0)
-				audio_sound_set_track_position(current_song.reference_sound, get_seconds_from_tick(current_song.marker_pos) + current_song.reference_offset / 1000)
+		if (keyboard_check_pressed(vk_numpad3)) {
+			current_song.reference_option = 2; 
+			set_msg("Reference mix")
+			if (playing) {
+				if (current_song.reference_option > 0 && !audio_is_playing(current_song.reference_sound)) {
+					current_song.reference_sound = audio_play_sound(current_song.reference_audio, 1, 0)
+					audio_sound_gain(current_song.reference_audio, (current_song.reference_volume * mastervol) / 100, 0)
+					audio_sound_set_track_position(current_song.reference_sound, get_seconds_from_tick(current_song.marker_pos) + current_song.reference_offset / 1000)
+				}
 			}
 		}
+	
 	}
 	
 	// Selecting note blocks
