@@ -2386,6 +2386,7 @@ function control_draw() {
 			if (!dropmode) {
 
 				current_song.marker_pos = draw_dragbar(current_song.marker_pos, current_song.enda + totalcols, centerx - 200, centery + 25, 400, 1, time_str(get_seconds_from_tick(clamp(((mouse_x - (centerx - 200)) / 400) * current_song.enda, 0, current_song.enda))), condstr(language != 1, "Song Position", "当前位置"), 0)
+				if (aa = 1) current_song.tempo = get_tempo_from_tick(current_song.marker_pos)
 				draw_set_halign(fa_left)
 				draw_theme_color()
 				if (blackout) draw_set_color(c_white)
@@ -2424,6 +2425,7 @@ function control_draw() {
 			} else {
 				draw_set_alpha(dropalpha)
 				current_song.marker_pos = draw_dragbar(current_song.marker_pos, current_song.enda + totalcols, 93 - 84 + 100, 52 + 15, 400, 1, time_str(get_seconds_from_tick(clamp(((mouse_x - (93 - 84 + 100)) / 400) * current_song.enda, 0, current_song.enda))), condstr(language != 1, "Song Position", "当前位置"), 0)
+				if (aa = 1) current_song.tempo = get_tempo_from_tick(current_song.marker_pos)
 				draw_set_alpha(1)
 				if (mouse_x != mouse_xprev || mouse_y != mouse_yprev || mouse_rectangle(0, 0, 530, 90) || window != 0) {
 					dropalpha = 1
