@@ -38,10 +38,8 @@ function draw_window_set_tempo() {
 		
 		if (songs[song].real_tempo >= 1000) {
 			songs[song].real_tempo /= 100
-		} else if (songs[song].real_tempo >= 100) {
-			songs[song].real_tempo /= 10
 		}
-		songs[song].real_tempo = median(0.25, songs[song].real_tempo, 60)
+		songs[song].real_tempo = median(0.25, songs[song].real_tempo, 180)
 			
 		if (songs[song].real_tempo != otempo) {
 			changed = 1
