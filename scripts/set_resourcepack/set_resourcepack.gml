@@ -25,7 +25,7 @@ function set_resourcepack(pack_name){
 			dir_no_path = "pack_temp" + condstr(os_type = os_windows, "\\", "/")
 		} else {
 			dir = using_directory + pack_name + condstr(os_type = os_windows, "\\", "/")
-			dir_no_path = "ResourcePacks" + condstr(os_type = os_windows, "\\", "/") + pack_name + condstr(os_type = os_windows, "\\", "/")
+			dir_no_path = "resourcepacks" + condstr(os_type = os_windows, "\\", "/") + pack_name + condstr(os_type = os_windows, "\\", "/")
 		}
 	} else {
 		dir_no_path = "idkjustloadvanilla"
