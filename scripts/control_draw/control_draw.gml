@@ -2842,6 +2842,8 @@ function control_draw() {
 						download_url = string_replace(download_url, "http//", "http://")
 						download_song_start(download_url)
 					}
+				} else {
+					message((language = 0 ? "The \"Open in NBS\" function currently only works in player mode. Please close this instance and try again." : "“从NBS打开”功能当前只支持播放器模式。请关闭这个窗口再试一次。"))
 				}
 			}
 		}
