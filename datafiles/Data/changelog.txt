@@ -1,4 +1,37 @@
-Changes in v3.12.0-beta.1 (2026.03.xx):
+Changes in v3.12.0-beta.2 (2026.06.05):
+
+* Disabled the "Expand Workspace" function on macOS due to a runtime crash.
+* Fixed the bundle files not copied over to app documents sometimes.
+* Fixed datapack export generating incomplete bundle.
+* Changed executable copyright date to 2026 on macOS.
+* Fixed undo compress selection crashing.
+* Fixed show note chart crashing on Windows.
+* Added a transparency adjust option for selection.
+* Updated asset catalog ID names.
+* Fixed invalid instrument IDs in songs cause crashing.
+* Disabled older NBS file warning in player mode.
+* Changed the default writing directory to 
+   %APPDATA%\Minecraft_Note_Block_Studio\ on Windows.
+* Fixed unable to choose .minecraft directory on Windows.
+* Disabled auto unmaximizing on Linux due to rapid flashing.
+* Added .wav files support back for custom instruments.
+* Fixed backspace and tab keys not inputting correctly on Linux.
+* Fixed files not opening when double clicking the files on Windows.
+* Fixed OS type incorrect in logs.
+* Fixed sounds in included resource packs having incorrect octaves.
+* Changed tempo adjust limit to 180t/s (2700BPM)
+* Added buttons to adjust window scale.
+* Fixed reference audio shortcut interfering text input.
+* Fixed tempo not applying when dragging on the time bar when playing
+   in player mode.
+* Added a message for clicking on the "Open in NBS" button on Note Block World
+   when not in player mode.
+* Fixed not able to load resource packs on Linux.
+* Fixed trackpad being able to scroll sideways when playing on macOS.
+
+
+
+Changes in v3.12.0-beta.1 (2026.03.20):
 
 Removals:
 
