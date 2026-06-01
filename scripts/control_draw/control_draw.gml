@@ -1204,7 +1204,7 @@ function control_draw() {
 			}
 			
 			if (macos_scroll_is_trackpad()) {
-				if (scroll_dx != 0) {
+				if (scroll_dx != 0 && !playing) {
 					macos_scroll_temp_starta -= scroll_dx / 32
 					macos_scroll_temp_starta = median(0, macos_scroll_temp_starta, current_song.enda)
 					current_song.starta = round(macos_scroll_temp_starta)
