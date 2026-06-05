@@ -39,7 +39,7 @@ function instrument_load(custom_sounds_path = "") {
 	//if (os_type = os_windows) {
 		log("audio_file_decode")
 		if (file_exists(temp_file)) file_delete(temp_file)
-		if (string_lower(filename_ext(fn)) == ".ogg") {
+		if (string_lower(filename_ext(fn)) == ".ogg" || string_lower(filename_ext(fn)) == "") {
 			var ret = audio_file_decode_ogg(fn, temp_file);
 			if (ret < 0) ret = audio_file_decode_ogg(string_replace_all(game_save_id + "data/sounds/" + filename, "/", "\\"), temp_file);
 			log ("wrote to: " + temp_file)
